@@ -1,17 +1,34 @@
-const profileBtn = document.getElementById('profileBtn');
-const profileMenu = document.getElementById('profileMenu');
+document.addEventListener('DOMContentLoaded', () =>{
+    const dropdowns = document.querySelectorAll('.dropdown');
 
-profileBtn.addEventListener('click', (e) => {
-  e.stopPropagation(); // prevent document click from instantly closing it
-  profileMenu.classList.toggle('show');
-  profileBtn.classList.toggle('active');
+
+    dropdowns.forEach(dropdown => {
+        const btn = dropdown.querySelector('.dropbtn');
+        const menu = dropdown.querySelector('.dropdown-content');
+
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            // close all other dropdowns (to fix where they're both open)
+            dropdowns.forEach(d => {
+                const m = d.querySelector('.dropdown-content');
+                if (m !== menu) {
+                    m.classList.remove('show');
+                }   
+            });
+
+            // toggle current one selected
+            menu.classList.toggle('show');
+        });
+    });
+
+    // close all dropdowns when clicked outside (elsewhere on page)
+    document.addEventListener('click', () => {
+        dropdowns.forEach(d => {
+        d.querySelector('.dropdown-content').classList.remove('show');
+        });
+    });
 });
 
-profileMenu.addEventListener('click', (e) => {
-  e.stopPropagation(); // clicking inside menu won't close it immediately
-});
 
-document.addEventListener('click', () => {
-  profileMenu.classList.remove('show');
-  profileBtn.classList.remove('active');
-});
+
