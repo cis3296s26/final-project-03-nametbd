@@ -238,6 +238,17 @@ body {
 
 
 
+/* DASHBOARD.html */
+.page-header {
+  grid-column: 1 / -1;
+  margin-bottom: 10px;
+}
+
+.page-header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
 
 
 
