@@ -219,12 +219,10 @@ body {
   }
 
   .left-sidebar {
-    order: 2;
+    display: none;
+    visibility: hidden;
   }
 
-  .feed {
-    order: 1;
-  }
 
   .navbar {
     flex-direction: column;
