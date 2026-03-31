@@ -30,5 +30,20 @@ document.addEventListener('DOMContentLoaded', () =>{
     });
 });
 
+const profileForm = document.getElementById('profileForm');
+    //detects whether the page has a profile form and calls loadprofile()
+    if (profileForm && typeof window.loadProfile === 'function') {
+        await window.loadProfile();
+
+        //hooks the form submit to saveprofile() for editing profile page
+        profileForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (typeof window.saveProfile === 'function') {
+                await window.saveProfile();
+            }
+        });
+    }
+});
+
 
 
