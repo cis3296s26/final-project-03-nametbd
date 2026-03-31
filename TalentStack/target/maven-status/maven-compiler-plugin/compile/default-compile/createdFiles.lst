@@ -1,6 +1,5 @@
 com\talentstack\api\dto\MeResponse.class
 com\talentstack\api\TalentStackApiApplication.class
-com\talentstack\api\model\SiteConnections.class
 com\talentstack\api\service\UserDataService.class
 com\talentstack\api\dto\SignupRequest.class
 com\talentstack\api\controller\GlobalExceptionHandler.class

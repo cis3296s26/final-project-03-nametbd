@@ -37,28 +37,29 @@
                         password: document.getElementById('password').value
                     };
 
-                    try {
-                        status.textContent = 'Signing in...';
+                    ry {
+            status.textContent = 'Signing in...';
 
-                        const response = await fetch('/login', {
-                            method: 'POST',
-                            credentials: 'include',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(payload)
-                        });
-
-                        if (!response.ok) {
-                            throw new Error('Login failed.');
-                        }
-
-                        window.location.href = 'dashboard.html';
-                    } catch (error) {
-                        status.textContent = error.message;
-                    }
-                });
+            const response = await fetch('/api/login', {
+                method: 'POST',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
             });
+
+            if (!response.ok) {
+                throw new Error('Login failed.');
+            }
+
+            window.location.href = '/pages/dashboard.html';
+        } catch (error) {
+            status.textContent = error.message;
+            console.error(error);
+        }
+    });
+});
         </script>
     </body>
 </html>

@@ -24,17 +24,42 @@
             </section>
         </main>
 
-        <!-- TEMPORARY SCRIPT TO BYPASS LOGIN/BEFORE LOGIN SETUP TO GET TO THE DASHBOARD -->
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const form = document.getElementById('authForm');
+                const status = document.getElementById('authStatus');
 
-                form.addEventListener('submit', (e) => {
+                form.addEventListener('submit', async (e) => {
                     e.preventDefault();
-                    sessionStorage.setItem('mockLoggedIn', 'true');
-                    window.location.href = 'dashboard.html';
-                });
+
+                    const payload = {
+                        email: document.getElementById('email').value.trim(),
+                        password: document.getElementById('password').value
+                    };
+
+                    ry {
+            status.textContent = 'Signing in...';
+
+            const response = await fetch('/api/login', {
+                method: 'POST',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
             });
+
+            if (!response.ok) {
+                throw new Error('Login failed.');
+            }
+
+            window.location.href = '/pages/dashboard.html';
+        } catch (error) {
+            status.textContent = error.message;
+            console.error(error);
+        }
+    });
+});
         </script>
     </body>
 </html>
