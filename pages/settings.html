@@ -54,6 +54,7 @@
 
     <div class="profile-container">
       <!-- Profile Picture Upload/Display -->
+      <h2>Profile Picture</h2>
       <div class="profile-picture-section">
         <img id="profilePicture" src="../resources/defaultProfilePic.jpg" alt="Profile Picture"
              class="profile-img">
@@ -65,6 +66,7 @@
 
     <!-- Basic Information Form -->
     <div class="basic-info">
+      <h2>Basic Information</h2>
       <label for="fullName">Full Name: </label>
       <input type ="text" id="fullName" placeholder="Enter your full name" value="John Smith">
 
@@ -79,9 +81,17 @@
 
       <button onclick="saveBasicInfo()">Save Information</button>
     </div>
+
+    <!-- Tags/Sections -->
+    <div class="tags-section">
+      <h2>Skills & Sections</h2>
+      <button onclick="addTag()">Add Tag</button>
+      <!-- TBD-->
+    </div>
   </main>
 
   <!-- JS -->
   <script src="../js/index.js"></script>
+
 </body>
 </html>

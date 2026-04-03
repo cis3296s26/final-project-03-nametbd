@@ -28,6 +28,36 @@ document.addEventListener('DOMContentLoaded', () =>{
         d.querySelector('.dropdown-content').classList.remove('show');
         });
     });
+
+    // SETTINGS page functionalities (runs only in settings)
+    if(document.querySelector('.profile-container')){
+        // expose functions globally for onclick handlers
+        window.resetPic = resetPic;
+        window.saveBasicInfo = saveBasicInfo;
+        window.addTag - addTag;
+
+        // profile picture upload
+        const picUpload = document.getElementById('picUpload');
+        if(picUpload){
+            picUpload.addEventListener('change', function(event){
+                const file = event.target.files[0];
+                if(file){
+                    reader.onload = function(e){
+                        document.getElementById('profilePicture').src = e.target.result;
+                        localStorage.setItem('profilePic', e.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+
+        // reset profile picture to default
+        function resetPic(){
+            const profilePic = document.getElementById('profilePicture');
+            profilePic.src = '../resources/defaultProfilePic.jpg';
+            localStorage.removeItem('profilePic');
+        }
+    }
 });
 
 
