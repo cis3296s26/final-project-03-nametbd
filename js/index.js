@@ -128,20 +128,28 @@ document.addEventListener('DOMContentLoaded', () =>{
 });
 
 // FOR PASSWORD SHOW/HIDE
-function togglePassword() {
-    const passwordInput = document.getElementById("password")
-    const passwordInputReg = document.getElementById("reg-password");
-    const eyeIcon = document.querySelector(".eye-icon")
+function togglePassword(icon) {
+    const inputGroup = icon.closest(".input-group");
+    const passwordInput = inputGroup.querySelector("input");
 
-    // Fix for register AND sign in 
-    if(passwordInput.type === "password" || passwordInputReg.type === "password"){
-        passwordInput.type = "text"
-        passwordInputReg.type = "text"
-        eyeIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-off-icon lucide-eye-off"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"/><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"/><path d="m2 2 20 20"/></svg>'
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        icon.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10.733 5.076A10.744 10.744 0 0 1 21.938 12 10.75 10.75 0 0 1 18 17.357"/>
+                <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/>
+                <path d="M17.479 17.499A10.75 10.75 0 0 1 2.062 12a10.75 10.75 0 0 1 4.441-5.938"/>
+                <path d="M2 2l20 20"/>
+            </svg>
+        `;
     } else {
-        passwordInput.type = "password"
-        passwordInputReg.type = "password"
-        eyeIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-icon lucide-eye"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>'
+        passwordInput.type = "password";
+        icon.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/>
+                <circle cx="12" cy="12" r="3"/>
+            </svg>
+        `;
     }
 }
 
