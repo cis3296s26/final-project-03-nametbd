@@ -52,6 +52,46 @@
       <h1>Profile</h1>
     </div>
 
+    <div class="profile-dsplay">
+      <!-- DISPLAY Profile (TDB: edit if user is logged in to account linked to profile) -->
+      <div style="text-align: center; margin-bottom: 30px;">
+        <img id="profilePicture" src="../resources/defaultProfilePic.jpg" alt="Profile Picture"
+             class="profile-img">
+      </div>
+
+      <!-- Basic Info Display -->
+      <div id="profileInfoSection" class="profile-info" style="display: none;">
+        <div class="profile-field">
+          <label>Full Name: </label>
+          <span id="displayName" class="profile-value">Not Set</span>
+        </div>
+
+        <div class="profile-field">
+          <label>Status: </label>
+          <span id="displayStatus" class="profile-value">Not Set</span>
+        </div>
+
+        <div class="profile-field">
+          <label>Location: </label>
+          <span id="displayLocation" class="profile-value">Not Set</span>
+        </div>
+      </div>
+
+      <!-- Tags Display -->
+      <div id="tagsSection" class="tags-section" style="display: none;">
+        <h2>Skills & Sections</h2>
+        <div id="tagsList" class="tags-list">
+          <!-- TBD: display chosen tags -->
+        </div>
+      </div>
+
+      <!-- Edit Profile -->
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="settings.html" class="primary-btn bubbly-btn"
+           style="display: inline-block; padding: 16px 32px; font-size: 1.1rem;">Edit Profile
+        </a>
+      </div>
+    </div>
   </main>
 
   <!-- JS -->

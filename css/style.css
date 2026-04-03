@@ -381,6 +381,47 @@ body {
   font-weight: 600;
 }
 
+/* PROFILE.html */
+.profile-display{
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.profile-info {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px;
+}
+.profile-field{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--color-green-tint);
+}
+.profile-field label {
+  font-weight: 600;
+  color: var(--dark-green);
+  front-size: 1.1rem;
+}
+.profile-value {
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  font-weight:500;
+}
+.profile-tag {
+  background: linear-gradient(135deg, var(--color-primary), var(--secondary-color));
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 500;
+  margin: 0 12px 12px 0;
+  display: inline-block;
+}
+
+
 /* SETTINGS.html */
 .profile-container {
   max-width: 600px;
