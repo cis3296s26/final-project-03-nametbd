@@ -17,10 +17,9 @@
         </svg>
     `;
 
-    function setStatus(message, isError = false) {
-        const status = document.getElementById('authStatus');
+    function setStatus(elementId, message, isError = false) {
+        const status = document.getElementById(elementId);
         if (!status) return;
-
         status.textContent = message || '';
         status.style.color = isError ? '#b00020' : '';
     }
@@ -51,14 +50,14 @@
             const email = document.getElementById('email')?.value.trim() || '';
             const password = document.getElementById('password')?.value || '';
 
-            setStatus('Signing in...');
+            setStatus('authStatus', 'Signing in...');
 
             try {
                 await window.AuthApi.login(email, password);
-                setStatus('Login successful.');
+                setStatus('authStatus', 'Login successful.');
                 window.location.href = DASHBOARD_PAGE;
             } catch (error) {
-                setStatus(error.message || 'Login failed.', true);
+                setStatus('authStatus', error.message || 'Login failed.', true);
             }
         });
     }
@@ -72,23 +71,23 @@
 
             const firstName = document.getElementById('firstName')?.value.trim() || '';
             const lastName = document.getElementById('lastName')?.value.trim() || '';
-            const email = document.getElementById('email')?.value.trim() || '';
-            const password = document.getElementById('password')?.value || '';
+            const email = document.getElementById('regEmail')?.value.trim() || '';
+            const password = document.getElementById('regPassword')?.value || '';
             const confirmPassword = document.getElementById('confirmPassword')?.value || '';
 
             if (password !== confirmPassword) {
-                setStatus('Passwords do not match.', true);
+                setStatus('registerStatus', 'Passwords do not match.', true);
                 return;
             }
 
-            setStatus('Creating account...');
+            setStatus('registerStatus', 'Creating account...');
 
             try {
                 await window.AuthApi.register(firstName, lastName, email, password);
-                setStatus('Registration successful.');
+                setStatus('registerStatus', 'Registration successful.');
                 window.location.href = DASHBOARD_PAGE;
             } catch (error) {
-                setStatus(error.message || 'Registration failed.', true);
+                setStatus('registerStatus', error.message || 'Registration failed.', true);
             }
         });
     }
