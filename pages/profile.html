@@ -1,100 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Profile</title>
+  <head>
+    <meta charset="UTF-8">
+    <title>Profile - TalentStack</title>
 
-  <!-- CSS (go up one level) -->
-  <link rel="stylesheet" href="../css/style.css">
-</head>
+    <!-- CSS (go up one level) -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/profile.css">
 
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
 
-  <!--  NAVBAR (same on every page) -->
-  <header class="navbar">
-    <div class="navbar-left">
-      <a href="../index.html">
-        <img src="../resources/logo/best(1).svg" alt="Logo" class="logo">
-      </a>
-      <input type="text" placeholder="Search" class="search-bar">
-    </div>
+  <body>
 
-    <nav class="navbar-nav">
-      <a href="dashboard.html">My Dashboard</a>
-      <a href="jobs.html">Browse Jobs</a>
-
-      <div class="dropdown">
-        <button class="dropbtn">Career Prep ▾</button>
-        <div class="dropdown-content">
-          <a href="dashboard.html">Application Status</a>
-          <a href="dashboard.html">Interview Prep</a>
-          <a href="dashboard.html">Calendar</a>
-        </div>
-      </div>
-
-      <a href="messages.html">Messaging</a>
-      <a href="notifications.html">Notifications</a>
-
-      <div class="dropdown">
-        <button class="dropbtn">Profile ▾</button>
-        <div class="dropdown-content">
-          <a href="profile.html">Profile</a>
-          <a href="settings.html">Settings</a>
-          <a href="#">Sign Out</a>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <!-- PAGE CONTENT -->
-  <main class="dashboard">
-    <div class="page-header">
-      <h1>Profile</h1>
-    </div>
-
-    <div class="profile-dsplay">
-      <!-- DISPLAY Profile (TDB: edit if user is logged in to account linked to profile) -->
-      <div style="text-align: center; margin-bottom: 30px;">
-        <img id="profilePicture" src="../resources/defaultProfilePic.jpg" alt="Profile Picture"
-             class="profile-img">
-      </div>
-
-      <!-- Basic Info Display -->
-      <div id="profileInfoSection" class="profile-info" style="display: none;">
-        <div class="profile-field">
-          <label>Full Name: </label>
-          <span id="displayName" class="profile-value">Not Set</span>
-        </div>
-
-        <div class="profile-field">
-          <label>Status: </label>
-          <span id="displayStatus" class="profile-value">Not Set</span>
-        </div>
-
-        <div class="profile-field">
-          <label>Location: </label>
-          <span id="displayLocation" class="profile-value">Not Set</span>
-        </div>
-      </div>
-
-      <!-- Tags Display -->
-      <div id="tagsSection" class="tags-section" style="display: none;">
-        <h2>Skills & Sections</h2>
-        <div id="tagsList" class="tags-list">
-          <!-- TBD: display chosen tags -->
-        </div>
-      </div>
-
-      <!-- Edit Profile -->
-      <div style="text-align: center; margin-top: 30px;">
-        <a href="settings.html" class="primary-btn bubbly-btn"
-           style="display: inline-block; padding: 16px 32px; font-size: 1.1rem;">Edit Profile
+    <!--  NAVBAR (same on every page) -->
+    <header class="navbar">
+      <div class="navbar-left">
+        <a href="../index.html">
+          <img src="../resources/logo/best(1).svg" alt="Logo" class="logo">
         </a>
+        <input type="text" placeholder="Search" class="search-bar">
+      </div>
+
+      <nav class="navbar-nav">
+        <a href="dashboard.html">My Dashboard</a>
+        <a href="jobs.html">Browse Jobs</a>
+
+        <div class="dropdown">
+          <button class="dropbtn">Career Prep ▾</button>
+          <div class="dropdown-content">
+            <a href="dashboard.html">Application Status</a>
+            <a href="dashboard.html">Interview Prep</a>
+            <a href="dashboard.html">Calendar</a>
+          </div>
+        </div>
+
+        <a href="messages.html">Messaging</a>
+        <a href="notifications.html">Notifications</a>
+
+        <div class="dropdown">
+          <button class="dropbtn">Profile ▾</button>
+          <div class="dropdown-content">
+            <a href="profile.html">Profile</a>
+            <a href="settings.html">Settings</a>
+            <a href="#">Sign Out</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+
+    <!-- PAGE CONTENT -->
+    <main class="page">
+
+
+      <!-- Hero card -->
+      <div class="hero">
+        <div class="hero-banner"></div>
+        <div class="hero-body">
+          <div class="avatar-wrap">
+            <div class="avatar" id="avatarEl">JS</div>
+            <div class="avatar-edit" title="Change photo">✎</div>
+          </div>
+    
+          <div class="profile-top">
+            <div class="profile-identity">
+              <h2 id="displayName">John Smith</h2>
+              <div class="headline" id="displayHeadline">Software Engineering Student · Temple University</div>
+              <div class="location">📍 <span id="displayLocation">Philadelphia, PA</span></div>
+              <div class="open-badge"><span class="dot-anim"></span> Open to Work</div>
+            </div>
+            <div class="profile-actions">
+              <button class="btn-primary" onclick="openModal('about')">Edit Profile</button>
+              <button class="btn-outline">Share Profile</button>
+            </div>
+          </div>
+    
+          <div class="profile-stats">
+            <div class="stat"><div class="stat-num">312</div><div class="stat-label">Connections</div></div>
+            <div class="stat"><div class="stat-num">48</div><div class="stat-label">Profile Views</div></div>
+            <div class="stat"><div class="stat-num">7</div><div class="stat-label">Applications</div></div>
+            <div class="stat"><div class="stat-num">3</div><div class="stat-label">Interviews</div></div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Profile completion -->
+      <div class="completion-bar-wrap">
+        <span class="completion-label">Profile Strength</span>
+        <div class="bar-bg"><div class="bar-fill" id="completionBar"></div></div>
+        <span class="completion-pct">72%</span>
+        <span class="completion-tip">· Add certifications to reach 85%</span>
+      </div>
+    
+      <!-- Two-column grid -->
+      <div class="profile-grid">
+    
+        <!-- LEFT column -->
+        <div class="left-col">
+    
+          <!-- About -->
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">About</span>
+              <button class="card-edit" onclick="openModal('about')">Edit</button>
+            </div>
+            <p class="about-text" id="aboutText">
+              I'm a junior Computer Science student at Temple University with a passion for building clean, user-friendly software. Currently exploring roles in full-stack development and product engineering. I've interned at two startups and love the intersection of design and code. Looking for Summer 2025 internship opportunities.
+            </p>
+          </div>
+    
+          <!-- Skills -->
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Skills</span>
+              <button class="card-edit" onclick="openModal('skills')">Edit</button>
+            </div>
+            <div class="skills-grid" id="skillsGrid">
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Spring Boot</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">REST APIs</span>
+              <span class="skill-tag">HTML / CSS</span>
+              <span class="skill-tag">Agile / Scrum</span>
+            </div>
+          </div>
+    
+          <!-- Experience -->
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Experience</span>
+              <button class="card-edit" onclick="openModal('experience')">+ Add</button>
+            </div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-logo">🏢</div>
+                <div class="timeline-body">
+                  <div class="timeline-title">Software Engineering Intern</div>
+                  <div class="timeline-sub">Acme Tech · Full-time</div>
+                  <div class="timeline-date">Jun 2024 – Aug 2024 · 3 mos · Philadelphia, PA</div>
+                  <div class="timeline-desc">Built internal tooling using React and Spring Boot. Improved API response time by 30% through query optimization. Collaborated in a team of 5 using Agile sprints.</div>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-logo">🚀</div>
+                <div class="timeline-body">
+                  <div class="timeline-title">Frontend Developer Intern</div>
+                  <div class="timeline-sub">Launchpad Labs · Part-time</div>
+                  <div class="timeline-date">Jan 2024 – May 2024 · 5 mos · Remote</div>
+                  <div class="timeline-desc">Designed and implemented responsive UI components for a SaaS dashboard used by 2,000+ users. Conducted user testing sessions and iterated on feedback.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Education -->
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Education</span>
+              <button class="card-edit" onclick="openModal('education')">Edit</button>
+            </div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-logo">🎓</div>
+                <div class="timeline-body">
+                  <div class="timeline-title">Temple University</div>
+                  <div class="timeline-sub">B.S. Computer Science · GPA 3.6</div>
+                  <div class="timeline-date">2022 – 2026 (Expected)</div>
+                  <div class="timeline-desc">Dean's List 2023, 2024. Relevant coursework: Data Structures, Algorithms, Operating Systems, Software Engineering, Database Systems.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+        </div><!-- /left -->
+    
+        <!-- RIGHT column -->
+        <div class="right-col">
+    
+          <!-- Resume -->
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Resume</span>
+            </div>
+            <div class="resume-drop" id="resumeDrop" onclick="document.getElementById('resumeInput').click()">
+              <div class="drop-icon">📄</div>
+              <p><strong>Upload your resume</strong></p>
+              <p style="margin-top:4px">PDF or DOCX · Max 5MB</p>
+            </div>
+            <div class="resume-file" id="resumeFile" style="display:none">
+              <span class="file-icon">📄</span>
+              <div class="file-info">
+                <div class="file-name" id="fileName">John_Smith_Resume.pdf</div>
+                <div class="file-meta" id="fileMeta">Uploaded just now</div>
+              </div>
+              <button class="file-remove" title="Remove" onclick="removeResume()">×</button>
+            </div>
+            <input type="file" id="resumeInput" accept=".pdf,.docx" style="display:none" onchange="handleResume(this)">
+          </div>
+    
+          <!-- Interview Readiness -->
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Interview Preparation</span>
+            </div>
+            <div id="readinessList">
+              <!-- generated by JS -->
+            </div>
+            <button class="btn-primary" style="width:100%;margin-top:16px;border-radius:8px" onclick="alert('Opening Interview Prep…')">Practice Now</button>
+          </div>
+    
+          <!-- Certifications -->
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Certifications</span>
+              <button class="card-edit" onclick="openModal('cert')">+ Add</button>
+            </div>
+            <div class="cert-list">
+              <div class="cert-item">
+                <span class="cert-icon">☁️</span>
+                <div class="cert-info">
+                  <div class="cert-name">AWS Cloud Practitioner</div>
+                  <div class="cert-org">Amazon Web Services · 2024</div>
+                </div>
+              </div>
+              <div class="cert-item">
+                <span class="cert-icon">🐍</span>
+                <div class="cert-info">
+                  <div class="cert-name">Python for Everybody</div>
+                  <div class="cert-org">Coursera / University of Michigan · 2023</div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+        </div><!-- /right -->
+      </div><!-- /grid -->
+
+    </main>
+
+
+    <!-- ── Edit Modal ──────────────────────────────────── -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+      <div class="modal" id="modalBox">
+        <div class="modal-header">
+          <span class="modal-title" id="modalTitle">Edit Profile</span>
+          <button class="modal-close" onclick="closeModal()">×</button>
+        </div>
+        <div id="modalBody"></div>
+        <div class="modal-footer">
+          <button class="btn-outline" onclick="closeModal()">Cancel</button>
+          <button class="btn-primary" onclick="saveModal()">Save Changes</button>
+        </div>
       </div>
     </div>
-  </main>
 
-  <!-- JS -->
-  <script src="../js/index.js"></script>
-</body>
+    <!-- JS -->
+    <script src="../js/index.js"></script>
+    <script>
+      /* ── Interview readiness data ── */
+      const readiness = [
+        { label: 'Behavioral (STAR)',  score: 4, max: 5 },
+        { label: 'Data Structures',    score: 3, max: 5 },
+        { label: 'System Design',      score: 2, max: 5 },
+        { label: 'Communication',      score: 5, max: 5 },
+        { label: 'Problem Solving',    score: 3, max: 5 },
+      ];
+    
+      function renderReadiness() {
+        const el = document.getElementById('readinessList');
+        el.innerHTML = readiness.map(r => {
+          const dots = Array.from({length: r.max}, (_, i) =>
+            `<div class="dot ${i < r.score ? 'filled' : ''}"></div>`
+          ).join('');
+          const pct = Math.round((r.score / r.max) * 100);
+          return `<div class="readiness-row">
+            <span class="readiness-label">${r.label}</span>
+            <div class="readiness-score">
+              <div class="score-dots">${dots}</div>
+              <span class="score-val">${pct}%</span>
+            </div>
+          </div>`;
+        }).join('');
+      }
+      renderReadiness();
+    
+      /* ── Resume upload ── */
+      function handleResume(input) {
+        const file = input.files[0];
+        if (!file) return;
+        document.getElementById('fileName').textContent = file.name;
+        document.getElementById('fileMeta').textContent = 'Uploaded just now · ' + (file.size / 1024).toFixed(0) + ' KB';
+        document.getElementById('resumeDrop').style.display = 'none';
+        document.getElementById('resumeFile').style.display = 'flex';
+      }
+      function removeResume() {
+        document.getElementById('resumeInput').value = '';
+        document.getElementById('resumeDrop').style.display = 'block';
+        document.getElementById('resumeFile').style.display = 'none';
+      }
+    
+      /* ── Modal system ── */
+      const modals = {
+        about: {
+          title: 'Edit About',
+          html: () => `
+            <div class="form-group">
+              <label class="form-label">Full Name</label>
+              <input class="form-input" id="f_name" value="${document.getElementById('displayName').textContent}">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Headline</label>
+              <input class="form-input" id="f_headline" value="${document.getElementById('displayHeadline').textContent}">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Location</label>
+              <input class="form-input" id="f_location" value="${document.getElementById('displayLocation').textContent}">
+            </div>
+            <div class="form-group">
+              <label class="form-label">About / Bio</label>
+              <textarea class="form-textarea" id="f_about">${document.getElementById('aboutText').textContent.trim()}</textarea>
+            </div>`,
+          save: () => {
+            document.getElementById('displayName').textContent     = document.getElementById('f_name').value;
+            document.getElementById('displayHeadline').textContent = document.getElementById('f_headline').value;
+            document.getElementById('displayLocation').textContent = document.getElementById('f_location').value;
+            document.getElementById('aboutText').textContent       = document.getElementById('f_about').value;
+            // Update avatar initials
+            const initials = document.getElementById('f_name').value.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+            document.getElementById('avatarEl').textContent = initials;
+          }
+        },
+        skills: {
+          title: 'Edit Skills',
+          html: () => `
+            <div class="form-group">
+              <label class="form-label">Skills (comma-separated)</label>
+              <textarea class="form-textarea" id="f_skills" style="min-height:60px">${
+                Array.from(document.querySelectorAll('#skillsGrid .skill-tag')).map(t=>t.textContent).join(', ')
+              }</textarea>
+            </div>`,
+          save: () => {
+            const tags = document.getElementById('f_skills').value.split(',').map(s=>s.trim()).filter(Boolean);
+            document.getElementById('skillsGrid').innerHTML = tags.map(t=>`<span class="skill-tag">${t}</span>`).join('');
+          }
+        },
+        experience: {
+          title: 'Add Experience',
+          html: () => `
+            <div class="form-group"><label class="form-label">Job Title</label><input class="form-input" id="f_jtitle" placeholder="e.g. Software Engineer Intern"></div>
+            <div class="form-group"><label class="form-label">Company</label><input class="form-input" id="f_company" placeholder="e.g. Google"></div>
+            <div class="form-row">
+              <div class="form-group"><label class="form-label">Start</label><input class="form-input" id="f_start" placeholder="Jun 2025"></div>
+              <div class="form-group"><label class="form-label">End</label><input class="form-input" id="f_end" placeholder="Aug 2025 or Present"></div>
+            </div>
+            <div class="form-group"><label class="form-label">Description</label><textarea class="form-textarea" id="f_edesc" placeholder="Key responsibilities and achievements…"></textarea></div>`,
+          save: () => { /* Would POST to backend */ closeModal(); }
+        },
+        education: {
+          title: 'Edit Education',
+          html: () => `
+            <div class="form-group"><label class="form-label">School</label><input class="form-input" id="f_school" value="Temple University"></div>
+            <div class="form-group"><label class="form-label">Degree & Field</label><input class="form-input" id="f_degree" value="B.S. Computer Science"></div>
+            <div class="form-row">
+              <div class="form-group"><label class="form-label">Start Year</label><input class="form-input" id="f_gradstart" value="2022"></div>
+              <div class="form-group"><label class="form-label">End Year</label><input class="form-input" id="f_gradend" value="2026"></div>
+            </div>
+            <div class="form-group"><label class="form-label">GPA (optional)</label><input class="form-input" id="f_gpa" value="3.6"></div>`,
+          save: () => { closeModal(); }
+        },
+        cert: {
+          title: 'Add Certification',
+          html: () => `
+            <div class="form-group"><label class="form-label">Certification Name</label><input class="form-input" id="f_certname" placeholder="e.g. AWS Solutions Architect"></div>
+            <div class="form-group"><label class="form-label">Issuing Organization</label><input class="form-input" id="f_certorg" placeholder="e.g. Amazon Web Services"></div>
+            <div class="form-group"><label class="form-label">Year</label><input class="form-input" id="f_certyear" placeholder="2025"></div>`,
+          save: () => { closeModal(); }
+        }
+      };
+    
+      let currentModal = null;
+    
+      function openModal(key) {
+        currentModal = key;
+        const m = modals[key];
+        document.getElementById('modalTitle').textContent = m.title;
+        document.getElementById('modalBody').innerHTML = m.html();
+        document.getElementById('modalOverlay').classList.add('open');
+      }
+    
+      function closeModal() {
+        document.getElementById('modalOverlay').classList.remove('open');
+        currentModal = null;
+      }
+    
+      function closeModalOutside(e) {
+        if (e.target === document.getElementById('modalOverlay')) closeModal();
+      }
+    
+      function saveModal() {
+        if (currentModal && modals[currentModal].save) {
+          modals[currentModal].save();
+        }
+        closeModal();
+      }
+    </script>
+    
+  </body>
 </html>

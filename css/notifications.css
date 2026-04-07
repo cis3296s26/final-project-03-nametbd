@@ -1,0 +1,188 @@
+/* Copied Jamie's code out of the html style header*/
+
+*, *::before, *::after { 
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 0; 
+}
+ 
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #edecea;
+    color: #1a1a1a;
+    min-height: 100vh;
+}
+
+/* ── Navbar ──
+.navbar {
+    display: flex; align-items: center; justify-content: space-between;
+    background: #fff; padding: 0 28px; height: 56px;
+    border-bottom: 1px solid #e0ddd8;
+    position: sticky; top: 0; z-index: 200;
+}
+
+.navbar-left { display: flex; align-items: center; gap: 12px; }
+.logo {
+    width: 36px; height: 36px; background: #3a7d44; border-radius: 6px;
+    color: #fff; font-weight: 700; font-size: 13px;
+    display: grid; place-items: center; text-decoration: none;
+}
+
+.search-bar {
+    border: none; background: #f0eeeb; border-radius: 6px;
+    padding: 6px 14px; font-size: 14px; width: 220px; color: #444; outline: none;
+}
+
+.search-bar::placeholder { color: #aaa; }
+.navbar-nav { display: flex; align-items: center; gap: 22px; }
+.navbar-nav a {
+    text-decoration: none; color: #444; font-size: 14px; font-weight: 500;
+    white-space: nowrap; transition: color .15s;
+}
+
+.navbar-nav a:hover, .navbar-nav a.active { color: #1a1a1a; font-weight: 600; }
+.dropdown { position: relative; }
+.dropbtn {
+    background: none; border: none; cursor: pointer;
+    font-size: 14px; font-weight: 500; color: #444; padding: 0;
+}
+
+.dropbtn:hover { color: #1a1a1a; }
+.dropdown:hover .dropdown-content { display: block; }
+.dropdown-content {
+    display: none; position: absolute; top: calc(100% + 10px); right: 0;
+    background: #fff; border: 1px solid #e0ddd8; border-radius: 8px;
+    min-width: 160px; box-shadow: 0 4px 14px rgba(0,0,0,.09); overflow: hidden; z-index: 300;
+}
+.dropdown-content a { display: block; padding: 10px 16px; font-size: 13px; color: #444; text-decoration: none; }
+.dropdown-content a:hover { background: #f5f4f1; } */
+
+
+
+/* ── Layout ── */
+.dashboard { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+
+.page-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.page-header h1 { font-size: 26px; font-weight: 700; }
+
+
+.mark-all-btn {
+    background: none; border: none; font-size: 13px; color: #3a7d44;
+    font-weight: 600; cursor: pointer; text-decoration: underline; text-underline-offset: 2px;
+}
+
+.mark-all-btn:hover { color: #2d6235; }
+
+/* ── Filter tabs ── */
+.filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+
+.filter-btn {
+    padding: 6px 16px; border-radius: 20px; border: 1.5px solid #d5d2cd;
+    background: #fff; font-size: 13px; font-weight: 500; color: #555; cursor: pointer; transition: all .15s;
+}
+
+.filter-btn:hover { border-color: #3a7d44; color: #3a7d44; }
+.filter-btn.active { background: #3a7d44; border-color: #3a7d44; color: #fff; }
+
+/* ── Section label ── */
+.section-label {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .07em; color: #999; margin: 28px 0 8px;
+}
+
+.section-label:first-child { margin-top: 0; }
+
+
+/* ── Notif list ── */
+.notif-list { display: flex; flex-direction: column; }
+
+
+/* ── Notif card ── */
+.notif-card {
+    background: #fff; border: 1px solid #e0ddd8; border-top: none;
+    padding: 16px 18px; display: flex; align-items: flex-start; gap: 13px;
+    cursor: pointer; position: relative; transition: background .15s;
+}
+
+.notif-list .notif-card:first-child { border-top: 1px solid #e0ddd8; border-radius: 10px 10px 0 0; }
+.notif-list .notif-card:last-child  { border-radius: 0 0 10px 10px; }
+.notif-list .notif-card:only-child  { border-top: 1px solid #e0ddd8; border-radius: 10px; }
+.notif-card:hover { background: #fafaf8; }
+.notif-card.unread { background: #f3f9f4; }
+.notif-card.unread:hover { background: #eaf4eb; }
+
+
+.unread-dot {
+    width: 8px; height: 8px; border-radius: 50%; background: #3a7d44;
+    flex-shrink: 0; margin-top: 7px; opacity: 0; transition: opacity .2s;
+}
+
+.notif-card.unread .unread-dot { opacity: 1; }
+
+.notif-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    display: grid; place-items: center;
+    font-size: 14px; font-weight: 700; color: #fff; flex-shrink: 0;
+}
+
+.notif-icon {
+    width: 40px; height: 40px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 18px; flex-shrink: 0;
+}
+
+.notif-body { flex: 1; min-width: 0; }
+.notif-text { font-size: 14px; color: #222; line-height: 1.5; }
+.notif-text strong { font-weight: 600; }
+.notif-time { font-size: 12px; color: #999; margin-top: 3px; }
+
+.notif-actions { display: flex; gap: 8px; margin-top: 10px; }
+.btn-accept {
+    padding: 5px 14px; border-radius: 20px; background: #3a7d44; color: #fff;
+    border: none; font-size: 12px; font-weight: 600; cursor: pointer; transition: background .15s;
+}
+
+.btn-accept:hover { background: #2d6235; }
+.btn-decline {
+    padding: 5px 14px; border-radius: 20px; background: #fff; color: #555;
+    border: 1.5px solid #d5d2cd; font-size: 12px; font-weight: 600; cursor: pointer; transition: all .15s;
+}
+
+.btn-decline:hover { border-color: #999; color: #333; }
+
+.notif-dismiss {
+    position: absolute; top: 13px; right: 14px; background: none; border: none;
+    font-size: 18px; color: #ccc; cursor: pointer; opacity: 0; transition: opacity .15s, color .15s; line-height: 1;
+}
+
+.notif-card:hover .notif-dismiss { opacity: 1; }
+.notif-dismiss:hover { color: #666; }
+
+
+/* ── Empty state ── */
+.empty-state { text-align: center; padding: 70px 20px; color: #bbb; }
+.empty-state .empty-icon { font-size: 44px; margin-bottom: 12px; }
+.empty-state p { font-size: 15px; }
+
+
+
+
+/* ── Toast ── */
+#toast {
+    position: fixed; bottom: 28px; left: 50%;
+    transform: translateX(-50%) translateY(70px);
+    background: #222; color: #fff; font-size: 13px;
+    padding: 10px 20px; border-radius: 8px;
+    display: flex; align-items: center; gap: 12px;
+    opacity: 0; transition: transform .28s, opacity .28s;
+    z-index: 999; pointer-events: none;
+}
+#toast.show { transform: translateX(-50%) translateY(0); opacity: 1; pointer-events: auto; }
+#toast button { background: none; border: none; color: #6ed97e; font-size: 13px; font-weight: 700; cursor: pointer; padding: 0; }
+
+
+
+/* ── Slide-out ── */
+@keyframes slideOut {
+    to { opacity: 0; transform: translateX(24px); max-height: 0; padding-top: 0; padding-bottom: 0; border-width: 0; }
+}
+.notif-card.removing { animation: slideOut .22s ease forwards; overflow: hidden; }

@@ -199,3 +199,5 @@ loginBtn.addEventListener('click', viewLogin);
 fluid.addEventListener('animationend', () => {
     fluid.classList.remove("fluid-animate");
 })
+
+
