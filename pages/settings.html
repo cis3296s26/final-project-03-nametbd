@@ -14,7 +14,7 @@
   <header class="navbar">
     <div class="navbar-left">
       <a href="../index.html">
-        <div class="logo">TS</div>
+        <img src="../resources/logo/best(1).svg" alt="Logo" class="logo">
       </a>
       <input type="text" placeholder="Search" class="search-bar">
     </div>
@@ -50,6 +50,47 @@
   <main class="dashboard">
     <div class="page-header">
       <h1>Account Settings</h1>
+    </div>
+
+    <div class="profile-container">
+      <h2>Profile Picture</h2>
+      <!-- Profile Picture Upload/Display -->
+      <div class="profile-picture-section">
+        <img id="profilePicture" src="../resources/defaultProfilePic.jpg" alt="Profile Picture"
+             class="profile-img">
+        <input type="file" id="picUpload" accept="image/*" style="display: none;">
+        <div style="margin: 20px 0;">
+          <button class="primary-btn bubbly-btn"
+                  onclick="document.getElementById('picUpload').click()">Change Picture</button>
+          <button class="primary-btn bubbly-btn secondary"
+                  onclick="resetPic()">Reset to Default</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Basic Information Form -->
+    <div class="basic-info">
+      <h2>Basic Information</h2>
+      <label for="fullName">Full Name: </label>
+      <input type ="text" id="fullName" placeholder="Enter your full name" value="John Smith">
+
+      <label for="status">Status: </label>
+      <select id="status">
+        <option value="student">Student</option>
+        <option value="graduate">Graduate</option>
+      </select>
+
+      <label for="location">Location: </label>
+      <input type="text" id="location" placeholder="City, State" value="Pittsburg, Pennsylvania">
+
+      <button class="primary-btn bubbly-btn" onclick="saveBasicInfo()">Save Information</button>
+    </div>
+
+    <!-- Tags/Sections -->
+    <div class="tags-section">
+      <h2>Skills & Sections</h2>
+      <button class="primary-btn bubbly-btn" onclick="addTag()">Add Tag</button>
+      <!-- TBD-->
     </div>
   </main>
 
