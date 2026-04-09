@@ -2,32 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Settings</title>
+    <title>Settings - TalentStack</title>
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="icon" href="/assets/resources/logo/best(1).svg" type="image/svg+xml">
 </head>
 <body>
 
 <header class="navbar">
     <div class="navbar-left">
-        <a href="/"><div class="logo">TS</div></a>
+        <a href="/">
+            <img src="/assets/resources/logo/best(1).svg" alt="Logo" class="logo">
+        </a>
         <input type="text" placeholder="Search" class="search-bar">
     </div>
 
     <nav class="navbar-nav">
         <a href="/assets/pages/dashboard.html">My Dashboard</a>
         <a href="/assets/pages/jobs.html">Browse Jobs</a>
+        <div class="dropdown">
+            <button class="dropbtn">Career Prep ▾</button>
+            <div class="dropdown-content">
+                <a href="/assets/pages/dashboard.html">Application Status</a>
+                <a href="/assets/pages/dashboard.html">Interview Prep</a>
+                <a href="/assets/pages/dashboard.html">Calendar</a>
+            </div>
+        </div>
         <a href="/assets/pages/messages.html">Messaging</a>
         <a href="/assets/pages/notifications.html">Notifications</a>
-        <a href="/assets/pages/profile.html">Profile</a>
+        <div class="dropdown">
+            <button class="dropbtn">Profile ▾</button>
+            <div class="dropdown-content">
+                <a href="/assets/pages/profile.html">Profile</a>
+                <a href="/assets/pages/settings.html">Settings</a>
+                <a href="#">Sign Out</a>
+            </div>
+        </div>
     </nav>
 </header>
 
-<main class="dashboard">
+<main class="dashboard" style="grid-template-columns: 1fr; max-width: 900px;">
     <div class="page-header">
         <h1>Account Settings</h1>
     </div>
 
-    <div class="basic-info">
+    <div class="profile-container card" style="max-width: none;">
+        <h2>Profile Picture</h2>
+        <div class="profile-picture-section" style="margin-top: 12px; text-align: center;">
+            <img id="profilePicture" src="/assets/resources/defaultProfilePic.jpg" alt="Profile Picture" class="profile-img" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.16);">
+            <input type="file" id="picUpload" accept="image/*" style="display:none;">
+            <div style="margin: 20px 0; display:flex; gap:10px; justify-content:center; flex-wrap: wrap;">
+                <button class="primary-btn bubbly-btn" onclick="document.getElementById('picUpload').click()" type="button">Change Picture</button>
+                <button class="primary-btn bubbly-btn secondary" onclick="resetPic()" type="button">Reset to Default</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="basic-info card" style="max-width:none; margin-top: 16px;">
         <h2>Basic Information</h2>
 
         <label for="profileEmail">Email</label>
@@ -38,6 +68,15 @@
 
         <label for="profileLastName">Last Name</label>
         <input type="text" id="profileLastName" placeholder="Enter your last name">
+
+        <label for="status">Status</label>
+        <select id="status">
+            <option value="student">Student</option>
+            <option value="graduate">Graduate</option>
+        </select>
+
+        <label for="location">Location</label>
+        <input type="text" id="location" placeholder="City, State">
 
         <p><strong>Created:</strong> <span id="profileCreatedAt">Unavailable</span></p>
         <p id="profileStatus" aria-live="polite"></p>

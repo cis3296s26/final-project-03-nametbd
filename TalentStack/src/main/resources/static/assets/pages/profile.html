@@ -2,42 +2,156 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Profile</title>
+    <title>Profile - TalentStack</title>
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/profile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header class="navbar">
     <div class="navbar-left">
-        <a href="/"><div class="logo">TS</div></a>
+        <a href="/">
+            <div class="logo">TS</div>
+        </a>
         <input type="text" placeholder="Search" class="search-bar">
     </div>
 
     <nav class="navbar-nav">
         <a href="/assets/pages/dashboard.html">My Dashboard</a>
         <a href="/assets/pages/jobs.html">Browse Jobs</a>
+        <div class="dropdown">
+            <button class="dropbtn">Career Prep ▾</button>
+            <div class="dropdown-content">
+                <a href="/assets/pages/dashboard.html">Application Status</a>
+                <a href="/assets/pages/dashboard.html">Interview Prep</a>
+                <a href="/assets/pages/dashboard.html">Calendar</a>
+            </div>
+        </div>
         <a href="/assets/pages/messages.html">Messaging</a>
         <a href="/assets/pages/notifications.html">Notifications</a>
-        <a href="/assets/pages/settings.html">Settings</a>
+        <div class="dropdown">
+            <button class="dropbtn">Profile ▾</button>
+            <div class="dropdown-content">
+                <a href="/assets/pages/profile.html">Profile</a>
+                <a href="/assets/pages/settings.html">Settings</a>
+                <a href="#">Sign Out</a>
+            </div>
+        </div>
     </nav>
 </header>
 
-<main class="dashboard">
-    <div class="page-header"><h1>Profile</h1></div>
+<main class="page">
+        <div class="hero">
+            <div class="hero-banner"></div>
+            <div class="hero-body">
+                <div class="avatar-wrap">
+                    <div class="avatar" id="avatarEl">JS</div>
+                    <div class="avatar-edit" title="Change photo">✎</div>
+                </div>
 
-    <div class="profile-info" id="profileInfoSection">
-        <div class="profile-field"><label>Email: </label><span id="displayEmail" class="profile-value">Not Set</span></div>
-        <div class="profile-field"><label>First Name: </label><span id="displayFirstName" class="profile-value">Not Set</span></div>
-        <div class="profile-field"><label>Last Name: </label><span id="displayLastName" class="profile-value">Not Set</span></div>
-        <div class="profile-field"><label>Created: </label><span id="displayCreatedAt" class="profile-value">Unavailable</span></div>
+                <div class="profile-top">
+                    <div class="profile-identity">
+                        <h2 id="displayName">John Smith</h2>
+                        <div class="headline" id="displayHeadline">Software Engineering Student · Temple University</div>
+                        <div class="location">📍 <span id="displayLocation">Philadelphia, PA</span></div>
+                        <div class="location" id="displayEmail">john.smith@example.com</div>
+                        <div class="open-badge"><span class="dot-anim"></span> Open to Work</div>
+                    </div>
+                    <div class="profile-actions">
+                        <button class="btn-primary" onclick="openModal('about')">Edit Profile</button>
+                        <a href="/assets/pages/settings.html" class="btn-outline">Account Settings</a>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat"><div class="stat-num">312</div><div class="stat-label">Connections</div></div>
+                    <div class="stat"><div class="stat-num">48</div><div class="stat-label">Profile Views</div></div>
+                    <div class="stat"><div class="stat-num">7</div><div class="stat-label">Applications</div></div>
+                    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Interviews</div></div>
+                </div>
+            </div>
     </div>
 
-    <p id="profileStatus" aria-live="polite"></p>
+        <div class="completion-bar-wrap">
+            <span class="completion-label">Profile Strength</span>
+            <div class="bar-bg"><div class="bar-fill" id="completionBar"></div></div>
+            <span class="completion-pct">72%</span>
+            <span class="completion-tip">· Add certifications to reach 85%</span>
+        </div>
 
-    <div style="text-align: center; margin-top: 30px;">
-        <a href="/assets/pages/settings.html" class="primary-btn bubbly-btn" style="display: inline-block; padding: 16px 32px; font-size: 1.1rem;">Edit Profile</a>
-    </div>
+        <div class="profile-grid">
+            <div class="left-col">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">About</span>
+                        <button class="card-edit" onclick="openModal('about')">Edit</button>
+                    </div>
+                    <p class="about-text" id="aboutText">I'm a junior Computer Science student with a passion for building clean, user-friendly software.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Skills</span>
+                        <button class="card-edit" onclick="openModal('skills')">Edit</button>
+                    </div>
+                    <div class="skills-grid" id="skillsGrid">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">Python</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-col">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Resume</span>
+                    </div>
+                    <div class="resume-drop" id="resumeDrop" onclick="document.getElementById('resumeInput').click()">
+                        <div class="drop-icon">📄</div>
+                        <p><strong>Upload your resume</strong></p>
+                        <p style="margin-top:4px">PDF or DOCX · Max 5MB</p>
+                    </div>
+                    <div class="resume-file" id="resumeFile" style="display:none">
+                        <span class="file-icon">📄</span>
+                        <div class="file-info">
+                            <div class="file-name" id="fileName">John_Smith_Resume.pdf</div>
+                            <div class="file-meta" id="fileMeta">Uploaded just now</div>
+                        </div>
+                        <button class="file-remove" title="Remove" onclick="removeResume()">×</button>
+                    </div>
+                    <input type="file" id="resumeInput" accept=".pdf,.docx" style="display:none" onchange="handleResume(this)">
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Interview Preparation</span>
+                    </div>
+                    <div id="readinessList"></div>
+                    <button class="btn-primary" style="width:100%;margin-top:16px;border-radius:8px" onclick="alert('Opening Interview Prep…')">Practice Now</button>
+                </div>
+            </div>
+        </div>
+        <p id="displayCreatedAt" style="display:none">Unavailable</p>
+        <p id="profileStatus" aria-live="polite"></p>
 </main>
+
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+        <div class="modal" id="modalBox">
+            <div class="modal-header">
+                <span class="modal-title" id="modalTitle">Edit Profile</span>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div id="modalBody"></div>
+            <div class="modal-footer">
+                <button class="btn-outline" onclick="closeModal()">Cancel</button>
+                <button class="btn-primary" onclick="saveModal()">Save Changes</button>
+            </div>
+        </div>
+    </div>
 
 <script src="/assets/js/auth-session.js"></script>
 <script src="/assets/js/profile-api.js"></script>

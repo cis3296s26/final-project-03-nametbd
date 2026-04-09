@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Profile</title>
+    <title>Notifications - TalentStack</title>
 
     <!-- CSS (go up one level) -->
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/notifications.css">
 </head>
 
 <body>
@@ -50,10 +51,25 @@
 <main class="dashboard">
     <div class="page-header">
         <h1>Notifications</h1>
+        <button class="mark-all-btn" onclick="markAllRead()">Mark all as read</button>
     </div>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" onclick="setFilter('all', this)">All</button>
+        <button class="filter-btn" onclick="setFilter('unread', this)">Unread</button>
+        <button class="filter-btn" onclick="setFilter('connections', this)">Connections</button>
+        <button class="filter-btn" onclick="setFilter('jobs', this)">Jobs</button>
+        <button class="filter-btn" onclick="setFilter('mentions', this)">Mentions</button>
+    </div>
+    <div id="feed"></div>
 </main>
 
+<div id="toast">
+    Notification removed
+    <button onclick="undoDismiss()">Undo</button>
+</div>
 <!-- JS -->
+<script src="/assets/js/notifications-page.js"></script>
 <script src="/assets/js/nav.js"></script>
 </body>
 </html>
