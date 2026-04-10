@@ -532,3 +532,54 @@ body {
 }
 
 /* || UTILITIES */
+
+body.dark-mode {
+  background-color: #121212;
+  color: #e6e6e6;
+}
+
+/* Navbar */
+body.dark-mode .navbar {
+  background-color: #1c1c1c;
+  border-bottom: 1px solid #333;
+}
+
+/* Dropdown menu container */
+body.dark-mode .dropdown-content {
+  background-color: #1f1f1f;
+  border: 1px solid #333;
+}
+
+/* Dropdown links */
+body.dark-mode .dropdown-content a {
+  color: #e6e6e6;
+}
+
+body.dark-mode .dropdown-content a:hover {
+  background-color: #2a2a2a;
+}
+
+/* Cards */
+body.dark-mode .card {
+  background-color: #1e1e1e;
+  color: #e6e6e6;
+}
+
+/* Inputs */
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background-color: #2a2a2a;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+/* Buttons */
+body.dark-mode .btn-primary {
+  background-color: #3b82f6;
+}
+
+body.dark-mode .btn-outline {
+  border-color: #777;
+  color: #e6e6e6;
+}

@@ -38,7 +38,7 @@ body {
     min-height: 800px;
 }
 
-.login-container, .register-container {
+.login-container, .register-container, .preferences-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -61,10 +61,19 @@ body {
 .form-header p {
     color: var(--color-gray-fill);
 }
-
+ 
 .form-header h1 {
     font-size: 32px;
     color: var(--color-white);
+}
+
+.preferences-container .form-header h1 {
+    font-size: 32px;
+    color: var(--color-text);
+}
+
+.preferences-container .form-header p {
+    color: var(--color-primary);
 }
 
 .form-box {
@@ -124,6 +133,15 @@ body {
 
 .input-field:not(:focus):not(:placeholder-shown) ~ .floating-label {
     color: var(--color-floating-label);
+}
+
+.input-group select:focus ~ .floating-label,
+.input-group select:not([value=""]) ~ .floating-label {
+    top: 0;
+    left: 8px;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: var(--color-primary);
 }
 
 .eye-icon {
