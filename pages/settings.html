@@ -4,98 +4,288 @@
   <meta charset="UTF-8">
   <title>Settings - TalentStack</title>
 
-  <!-- CSS (go up one level) -->
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/profile.css">
   <link rel="icon" href="../resources/logo/best(1).svg" type="image/svg+xml">
 </head>
 
 <body>
 
-  <!--  NAVBAR (same on every page) -->
-  <header class="navbar">
-    <div class="navbar-left">
-      <a href="../index.html">
-        <img src="../resources/logo/best(1).svg" alt="Logo" class="logo">
-      </a>
-      <input type="text" placeholder="Search" class="search-bar">
-    </div>
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="navbar-left">
+    <a href="../index.html">
+      <img src="../resources/logo/best(1).svg" class="logo">
+    </a>
+    <input type="text" placeholder="Search" class="search-bar">
+  </div>
 
-    <nav class="navbar-nav">
-      <a href="dashboard.html">My Dashboard</a>
-      <a href="jobs.html">Browse Jobs</a>
+  <nav class="navbar-nav">
+    <a href="dashboard.html">My Dashboard</a>
+    <a href="jobs.html">Browse Jobs</a>
 
-      <div class="dropdown">
-        <button class="dropbtn">Career Prep ▾</button>
-        <div class="dropdown-content">
-          <a href="dashboard.html">Application Status</a>
-          <a href="dashboard.html">Interview Prep</a>
-          <a href="dashboard.html">Calendar</a>
-        </div>
-      </div>
-
-      <a href="messages.html">Messaging</a>
-      <a href="notifications.html">Notifications</a>
-
-      <div class="dropdown">
-        <button class="dropbtn">Profile ▾</button>
-        <div class="dropdown-content">
-          <a href="profile.html">Profile</a>
-          <a href="settings.html">Settings</a>
-          <a href="#">Sign Out</a>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <!-- PAGE CONTENT -->
-  <main class="dashboard">
-    <div class="page-header">
-      <h1>Account Settings</h1>
-    </div>
-
-    <div class="profile-container">
-      <h2>Profile Picture</h2>
-      <!-- Profile Picture Upload/Display -->
-      <div class="profile-picture-section">
-        <img id="profilePicture" src="../resources/defaultProfilePic.jpg" alt="Profile Picture"
-             class="profile-img">
-        <input type="file" id="picUpload" accept="image/*" style="display: none;">
-        <div style="margin: 20px 0;">
-          <button class="primary-btn bubbly-btn"
-                  onclick="document.getElementById('picUpload').click()">Change Picture</button>
-          <button class="primary-btn bubbly-btn secondary"
-                  onclick="resetPic()">Reset to Default</button>
-        </div>
+    <div class="dropdown">
+      <button class="dropbtn">Career Prep ▾</button>
+      <div class="dropdown-content">
+        <a href="dashboard.html">Application Status</a>
+        <a href="dashboard.html">Interview Prep</a>
+        <a href="dashboard.html">Calendar</a>
       </div>
     </div>
 
-    <!-- Basic Information Form -->
-    <div class="basic-info">
-      <h2>Basic Information</h2>
-      <label for="fullName">Full Name: </label>
-      <input type ="text" id="fullName" placeholder="Enter your full name" value="John Smith">
+    <a href="messages.html">Messaging</a>
+    <a href="notifications.html">Notifications</a>
 
-      <label for="status">Status: </label>
-      <select id="status">
-        <option value="student">Student</option>
-        <option value="graduate">Graduate</option>
-      </select>
+    <div class="dropdown">
+      <button class="dropbtn">Profile ▾</button>
+      <div class="dropdown-content">
+        <a href="profile.html">Profile</a>
+        <a href="settings.html">Settings</a>
+        <a href="#">Sign Out</a>
+      </div>
+    </div>
+  </nav>
+</header>
 
-      <label for="location">Location: </label>
-      <input type="text" id="location" placeholder="City, State" value="Pittsburg, Pennsylvania">
+<!-- PAGE -->
+<main class="page">
 
-      <button class="primary-btn bubbly-btn" onclick="saveBasicInfo()">Save Information</button>
+  <!-- Header (matches profile spacing) -->
+  <div class="page-header">
+    <h1>Settings</h1>
+  </div>
+
+  <div style="max-width:900px;margin:auto;">
+
+    <!-- PERSONAL -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Personal Information</span>
+        <button class="card-edit" onclick="openModal('demographics')">Edit</button>
+      </div>
+      <p class="about-text">Manage your demographic information (optional).</p>
     </div>
 
-    <!-- Tags/Sections -->
-    <div class="tags-section">
-      <h2>Skills & Sections</h2>
-      <button class="primary-btn bubbly-btn" onclick="addTag()">Add Tag</button>
-      <!-- TBD-->
-    </div>
-  </main>
+    <!-- GENERAL -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">General Preferences</span>
+      </div>
 
-  <!-- JS -->
-  <script src="../js/index.js"></script>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-body">
+            <div class="timeline-title">Language</div>
+            <button class="card-edit" onclick="openModal('language')">Edit</button>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-body">
+            <div class="timeline-title">Privacy</div>
+            <button class="card-edit" onclick="openModal('privacy')">Edit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DISPLAY -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Display</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-body">
+          <div class="timeline-title">Dark Mode</div>
+          <button class="card-edit" onclick="openModal('darkmode')">Edit</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCOUNT -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Account Management</span>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-body">
+            <div class="timeline-title">Change Password</div>
+            <button class="card-edit" onclick="openModal('password')">Edit</button>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-body">
+            <div class="timeline-title">Delete Account</div>
+            <button class="card-edit" onclick="openModal('delete')">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- MODAL (IDENTICAL STRUCTURE TO PROFILE) -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modalBox">
+    <div class="modal-header">
+      <span class="modal-title" id="modalTitle"></span>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+
+    <div id="modalBody"></div>
+
+    <div class="modal-footer">
+      <button class="btn-outline" onclick="closeModal()">Cancel</button>
+      <button class="btn-primary" onclick="saveModal()">Save Changes</button>
+    </div>
+  </div>
+</div>
+
+<script src="../js/index.js"></script>
+
+<script>
+  let currentModal = null;
+
+  /* MODALS (SAME PATTERN AS PROFILE) */
+  const modals = {
+
+    demographics: {
+      title: "Edit Demographics",
+      html: () => `
+        <div class="form-group">
+          <label class="form-label">Gender (optional)</label>
+          <select class="form-input">
+            <option value="">Prefer not to say</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Nonbinary</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Race & Ethnicity</label>
+          <textarea class="form-textarea" placeholder="Enter multiple values separated by commas"></textarea>
+        </div>
+      `,
+      save: () => {}
+    },
+
+    language: {
+      title: "Language",
+      html: () => `
+        <div class="form-group">
+          <label class="form-label">Select Language</label>
+          <select class="form-input">
+            <option>English</option>
+            <option>Spanish</option>
+            <option>French</option>
+          </select>
+        </div>
+      `,
+      save: () => {}
+    },
+
+    privacy: {
+      title: "Privacy",
+      html: () => `
+        <div class="form-group">
+          <label class="form-label">Account Visibility</label>
+          <select class="form-input">
+            <option>Public</option>
+            <option>Private</option>
+          </select>
+        </div>
+      `,
+      save: () => {}
+    },
+
+    darkmode: {
+      title: "Dark Mode",
+      html: () => `
+        <div class="form-group">
+          <label class="form-label">Toggle Dark Mode</label>
+          <select id="darkToggle" class="form-input">
+            <option value="off">Off</option>
+            <option value="on">On</option>
+          </select>
+        </div>
+      `,
+      save: () => {
+        const val = document.getElementById("darkToggle").value;
+        document.body.classList.toggle("dark-mode", val === "on");
+      }
+    },
+
+    password: {
+      title: "Change Password",
+      html: () => `
+        <div class="form-group">
+          <input type="password" id="old" class="form-input" placeholder="Old Password" required>
+        </div>
+        <div class="form-group">
+          <input type="password" id="new" class="form-input" placeholder="New Password" required>
+        </div>
+        <div class="form-group">
+          <input type="password" id="confirm" class="form-input" placeholder="Confirm Password" required>
+        </div>
+      `,
+      save: () => {
+        const newP = document.getElementById("new").value;
+        const confirm = document.getElementById("confirm").value;
+
+        const valid = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).+$/;
+
+        if(newP !== confirm) return alert("Passwords do not match");
+        if(!valid.test(newP)) return alert("Password must include uppercase, lowercase, number, symbol");
+
+        alert("Password updated!");
+      }
+    },
+
+    delete: {
+      title: "Delete Account",
+      html: () => `
+        <p style="margin-bottom:15px;">Are you sure you want to delete your account?</p>
+        <button class="btn-primary" onclick="confirmDelete()">Yes, Delete Account</button>
+      `,
+      save: () => {}
+    }
+  };
+
+  /* MODAL SYSTEM (UNCHANGED PATTERN) */
+  function openModal(key){
+    currentModal = key;
+    document.getElementById("modalTitle").textContent = modals[key].title;
+    document.getElementById("modalBody").innerHTML = modals[key].html();
+    document.getElementById("modalOverlay").classList.add("open");
+  }
+
+  function closeModal(){
+    document.getElementById("modalOverlay").classList.remove("open");
+  }
+
+  function closeModalOutside(e){
+    if(e.target.id === "modalOverlay") closeModal();
+  }
+
+  function saveModal(){
+    if(modals[currentModal].save){
+      modals[currentModal].save();
+    }
+    closeModal();
+  }
+
+  function confirmDelete(){
+    alert("Account deleted");
+    window.location.href = "../index.html";
+  }
+</script>
+
 </body>
 </html>

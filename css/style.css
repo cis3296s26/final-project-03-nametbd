@@ -532,3 +532,26 @@ body {
 }
 
 /* || UTILITIES */
+
+/* DARK MODE OVERRIDES */
+
+.dark-mode {
+  background: #1e1e1e;
+  color: #e5e5e5;
+}
+
+.dark-mode .card {
+  background: #2a2a2a;
+}
+
+.dark-mode .navbar {
+  background: #222;
+}
+
+.dark-mode input,
+.dark-mode select,
+.dark-mode textarea {
+  background: #333;
+  color: #fff;
+  border-color: #555;
+}
