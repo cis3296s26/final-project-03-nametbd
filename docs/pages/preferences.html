@@ -23,36 +23,37 @@
                     <div class="form-box">
 
                         <div class="input-group">
-                            <input type="number" id="age" class="input-field" autocomplete="off" placeholder="" required>
+                            <input type="number" id="age" class="input-field" min="13" max="120" autocomplete="off" placeholder="" autocomplete="off">
                             <label for="age" class="floating-label">Age</label>
                         </div>
                         
                         <div class="input-group">
                             <select id="education" class="input-field">
-                                <option value="">Education Completed</option>
+                                <option value="" disable selected hidden>Select...</option>
                                 <option value="high-school">High School</option>
                                 <option value="associate">Associate Degree</option>
                                 <option value="bachelor">Bachelor's Degree</option>
                                 <option value="master">Master's Degree</option>
+                                <option value="other">Other</option>
                             </select>
                             <label for="education" class="floating-label">Education Completed</label>
                         </div>
 
                         <div class="input-group">
-                            <select id="jobInterest" class="input-field">
-                                <option value="">Jobs Looking For</option>
+                            <select id="jobInterest" class="input-field" >
+                                <option value="" disable selected hidden>Select...</option>
                                 <option value="full-time">Full-Time</option>
                                 <option value="part-time">Part-Time</option>
                                 <option value="internship">Internship</option>
-                                <option value="contract">Contract</option>
-                                <option value="freelance">Freelance</option>
+                                <option value="freelance">Research</option>
                             </select>
                             <label for="jobInterest" class="floating-label">Jobs Looking For</label>
                         </div>
 
 
-                        <button type="submit">Save and Continue</button>
-                        <button type="button" id="skipBtn">Skip for Now</button>
+                        <button type="submit" id="savePreferencesBtn" class="form-btn form-btn--submit"">Save and Continue</button>
+                        <button type="button" id="skipPreferencesBtn" class="form-link secondary-btn">Skip for Now</button>
+                        <p class="form-subtext">These preferences are optional and can be updated later.</p>
                     </div>
 
                 </div>
