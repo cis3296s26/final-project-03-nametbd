@@ -154,6 +154,17 @@
 
 <script>
   /* APPLY DARK MODE ON LOAD */
+   function applyDarkMode(isDark) {
+      document.body.classList.toggle("dark-mode", isDark);
+      localStorage.setItem("darkMode", isDark ? "on" : "off");
+      updateDarkStatus(isDark ? "on" : "off");
+   }
+
+  function updateDarkStatus(mode) {
+    const status = document.getElementById("darkModeStatus");
+    if (status) status.textContent = mode === "on" ? "ON" : "OFF";
+  }
+
   window.addEventListener("load", () => {
     const savedMode = localStorage.getItem("darkMode");
 
