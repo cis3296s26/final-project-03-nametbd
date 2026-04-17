@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!saveBtn) return;
 
     const status = document.getElementById('profileStatus');
-    const defaultPicturePath = '/assets/resources/defaultProfilePic.jpg';
+    const defaultPicturePath = '/docs/resources/defaultProfilePic.jpg';
 
     function setStatus(message, isError = false) {
         if (!status) return;

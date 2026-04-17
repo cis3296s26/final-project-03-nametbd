@@ -1,6 +1,6 @@
 (function () {
     //store path for login to redirect here if the session is expired
-    const LOGIN_ROUTE = '/assets/pages/login.html';
+    const LOGIN_ROUTE = '/docs/pages/login.html';
 
     //main reusable wrapper function. accepts a url and optional option object
     async function request(url, options = {}) {
