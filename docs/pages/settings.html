@@ -238,16 +238,7 @@
       `,
       save: () => {
         const mode = document.getElementById("darkToggle").value;
-
-        if (mode === "on") {
-          document.body.classList.add("dark-mode");
-          localStorage.setItem("darkMode", "on");
-          updateDarkStatus("on");
-        } else {
-          document.body.classList.remove("dark-mode");
-          localStorage.setItem("darkMode", "off");
-          updateDarkStatus("off");
-        }
+        applyDarkMode(mode === "on");
       }
     },
 
