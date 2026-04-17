@@ -1,0 +1,29 @@
+Assumed DB Structure
+
+Table 1 - User
+    Long user_id - PK
+    String email
+    String password_hash
+    LocalDateTime created_at
+    String first_name
+    String last_name
+
+Table 2 - Site_Connections
+    Long user_id - join t1
+    Int source_num - key for matching creds to site like 0 for linkedin 1 for indeed ect.
+    String user_name
+    String password
+
+Table 3 - Notifications
+    Long notification_id - PK
+    String notification_title
+    String notification_content
+    DateTime notification_date
+    LocalDateTime created_at
+
+Table 4 - User_Notification_Dismissals
+    Long user_id join - t1
+    Long notification_id - join t3
+    LocalDateTime dismissed_at
+
+Table 5 through tbd - logic for pulling job/interview data

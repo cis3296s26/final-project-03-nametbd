@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Browse Jobs</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+<header class="navbar">
+    <div class="navbar-left">
+        <a href="/"><div class="logo">TS</div></a>
+        <input type="text" placeholder="Search" class="search-bar">
+    </div>
+
+    <nav class="navbar-nav">
+        <a href="/assets/pages/dashboard.html">My Dashboard</a>
+        <a href="/assets/pages/jobs.html">Browse Jobs</a>
+
+        <div class="dropdown">
+            <button class="dropbtn">Career Prep ▾</button>
+            <div class="dropdown-content">
+                <a href="/assets/pages/dashboard.html">Application Status</a>
+                <a href="/assets/pages/dashboard.html">Interview Prep</a>
+                <a href="/assets/pages/dashboard.html">Calendar</a>
+            </div>
+        </div>
+
+        <a href="/assets/pages/messages.html">Messaging</a>
+        <a href="/assets/pages/notifications.html">Notifications</a>
+
+        <div class="dropdown">
+            <button class="dropbtn">Profile ▾</button>
+            <div class="dropdown-content">
+                <a href="/assets/pages/profile.html">Profile</a>
+                <a href="/assets/pages/settings.html">Settings</a>
+                <a href="#">Sign Out</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="dashboard">
+    <div class="page-header">
+        <h1>Browse Jobs</h1>
+    </div>
+
+    <section class="card">
+        <form id="jobsSearchForm">
+            <label for="jobKeyWords">Keywords</label>
+            <input type="text" id="jobKeyWords">
+
+            <label for="jobLocation">Location</label>
+            <input type="text" id="jobLocation">
+
+            <label for="jobDistance">Distance</label>
+            <input type="number" id="jobDistance">
+
+            <label for="jobSalaryMin">Minimum Salary</label>
+            <input type="number" id="jobSalaryMin">
+
+            <label for="jobSalaryMax">Maximum Salary</label>
+            <input type="number" id="jobSalaryMax">
+
+            <label for="jobContractType">Contract Type</label>
+            <input type="text" id="jobContractType">
+
+            <label for="jobMaxDaysOld">Max Days Old</label>
+            <input type="number" id="jobMaxDaysOld">
+
+            <p id="jobsSearchStatus" aria-live="polite"></p>
+            <button type="submit" class="primary-btn">Search</button>
+        </form>
+    </section>
+
+    <section class="card">
+        <h2>Results (<span id="jobsSearchCount">0</span>)</h2>
+        <ul id="jobsSearchResults"></ul>
+    </section>
+
+    <section class="card">
+        <h2>Saved Jobs</h2>
+        <p id="savedJobsStatus" aria-live="polite"></p>
+        <ul id="savedJobsList"></ul>
+    </section>
+</main>
+
+<script src="/assets/js/auth-session.js"></script>
+<script src="/assets/js/jobs-api.js"></script>
+<script src="/assets/js/jobs-saved.js"></script>
+<script src="/assets/js/jobs-search.js"></script>
+<script src="/assets/js/nav.js"></script>
+</body>
+</html>
