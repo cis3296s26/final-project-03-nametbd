@@ -533,53 +533,144 @@ body {
 
 /* || UTILITIES */
 
+/* || DARK MODE - COMPLETE OVERRIDES */
 body.dark-mode {
-  background-color: #121212;
-  color: #e6e6e6;
+  --color-background: #121212;
+  --color-text: #e6e6e6;
+  --color-border: #333;
+  --color-gray-fill: #2a2a2a;
+  --color-white: #1e1e1e;
+  --color-green-tint: #1f2a20;
 }
 
-/* Navbar */
+/* Page backgrounds */
+body.dark-mode .page,
+body.dark-mode .profile-container,
+body.dark-mode .profile-display {
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+/* All headings and labels */
+body.dark-mode .page-header h1,
+body.dark-mode .card-title,
+body.dark-mode .timeline-title,
+body.dark-mode .about-text,
+body.dark-mode .profile-field label,
+body.dark-mode .basic-info h2,
+body.dark-mode .tags-section h2,
+body.dark-mode .form-label {
+  color: var(--color-text);
+}
+
+/* Cards and containers */
+body.dark-mode .card,
+body.dark-mode .basic-info,
+body.dark-mode .tags-section,
+body.dark-mode .profile-info {
+  background-color: #1e1e1e !important;
+  color: var(--color-text);
+  border-color: #333;
+}
+
+/* Navigation */
 body.dark-mode .navbar {
   background-color: #1c1c1c;
   border-bottom: 1px solid #333;
 }
 
-/* Dropdown menu container */
-body.dark-mode .dropdown-content {
-  background-color: #1f1f1f;
-  border: 1px solid #333;
+body.dark-mode .navbar-nav a,
+body.dark-mode .navbar a,
+body.dark-mode .dropbtn {
+  color: var(--color-text);
 }
 
-/* Dropdown links */
-body.dark-mode .dropdown-content a {
-  color: #e6e6e6;
-}
-
-body.dark-mode .dropdown-content a:hover {
+body.dark-mode .navbar a:hover {
   background-color: #2a2a2a;
+  color: var(--color-primary);
 }
 
-/* Cards */
-body.dark-mode .card {
-  background-color: #1e1e1e;
-  color: #e6e6e6;
+/* Search bar */
+body.dark-mode .search-bar {
+  background: #2a2a2a;
+  color: #fff;
+  border: 1px solid #444;
 }
 
-/* Inputs */
+body.dark-mode .search-bar::placeholder {
+  color: #b0b0b0;
+}
+
+/* Forms and inputs */
 body.dark-mode input,
 body.dark-mode select,
-body.dark-mode textarea {
+body.dark-mode textarea,
+body.dark-mode .form-input,
+body.dark-mode .form-textarea {
   background-color: #2a2a2a;
   color: #fff;
   border: 1px solid #444;
 }
 
-/* Buttons */
-body.dark-mode .btn-primary {
-  background-color: #3b82f6;
+body.dark-mode .form-input::placeholder,
+body.dark-mode .form-textarea::placeholder {
+  color: #b0b0b0;
 }
 
-body.dark-mode .btn-outline {
-  border-color: #777;
+/* Modal */
+body.dark-mode .modal {
+  background: #1e1e1e;
+  color: var(--color-text);
+  border: 1px solid #333;
+}
+
+body.dark-mode .modal-header,
+body.dark-mode .modal-footer {
+  border-color: #333;
+}
+
+body.dark-mode .modal-close {
+  color: var(--color-text);
+}
+
+/* Dropdown */
+body.dark-mode .dropdown-content {
+  background-color: #1f1f1f;
+  border: 1px solid #333;
+}
+
+body.dark-mode .dropdown-content a {
+  color: var(--color-text);
+}
+
+body.dark-mode .dropdown-content a:hover {
+  background-color: #2a2a2a;
+  color: var(--color-primary);
+}
+
+/* Profile tags and buttons */
+body.dark-mode .profile-tag {
+  background: linear-gradient(135deg, #5a7a60, #8fb28f);
+  color: white;
+}
+
+body.dark-mode .tag {
+  background: #2a5a3a;
   color: #e6e6e6;
+}
+
+body.dark-mode .tag:hover {
+  background: var(--color-primary);
+  color: white;
+}
+
+body.dark-mode .card-edit,
+body.dark-mode .btn-primary,
+body.dark-mode .btn-outline {
+  color: #e6e6e6;
+  border-color: #555;
+}
+
+body.dark-mode .btn-outline:hover {
+  background: #2a2a2a;
 }
