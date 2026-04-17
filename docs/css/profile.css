@@ -365,3 +365,231 @@ body {
 .card:nth-child(2) { animation-delay: .10s; }
 .card:nth-child(3) { animation-delay: .15s; }
 .card:nth-child(4) { animation-delay: .20s; }
+
+/* profile.css - DARK MODE */
+body.dark-mode {
+    --border: #333;
+    --bg: #121212;
+    --card: #1e1e1e;
+    --text: #e6e6e6;
+    --muted: #b0b0b0;
+}
+
+body.dark-mode .page {
+    background: var(--bg);
+    color: var(--text);
+}
+
+body.dark-mode .hero-banner {
+    background: linear-gradient(135deg, #1a3a5a 0%, #1e4a2a 60%, #2a6a3a 100%);
+}
+
+body.dark-mode .hero-body {
+    background: var(--card);
+}
+
+body.dark-mode .profile-identity h2 {
+    color: var(--text);
+}
+
+body.dark-mode .profile-identity .headline,
+body.dark-mode .profile-identity .location {
+    color: var(--muted);
+}
+
+body.dark-mode .stat-num {
+    color: #4ade80;
+}
+
+body.dark-mode .stat-label {
+    color: var(--muted);
+}
+
+body.dark-mode .btn-primary {
+    background: #22c55e;
+}
+
+body.dark-mode .btn-primary:hover {
+    background: #16a34a;
+}
+
+body.dark-mode .btn-outline {
+    background: var(--card);
+    color: var(--text);
+    border-color: #444;
+}
+
+body.dark-mode .btn-outline:hover {
+    border-color: #666;
+    color: var(--text);
+}
+
+body.dark-mode .completion-bar-wrap {
+    background: var(--card);
+    border-color: #333;
+}
+
+body.dark-mode .bar-bg {
+    background: #2a2a2a;
+}
+
+body.dark-mode .bar-fill {
+    background: linear-gradient(90deg, #22c55e, #4ade80);
+}
+
+body.dark-mode .completion-pct {
+    color: #4ade80;
+}
+
+body.dark-mode .completion-tip {
+    color: var(--muted);
+}
+
+body.dark-mode .card {
+    background: var(--card);
+    border-color: #333;
+    color: var(--text);
+}
+
+body.dark-mode .card-title {
+    color: var(--text);
+}
+
+body.dark-mode .card-edit {
+    color: #4ade80;
+}
+
+body.dark-mode .card-edit:hover {
+    color: #22c55e;
+}
+
+body.dark-mode .about-text {
+    color: #d1d5db;
+}
+
+body.dark-mode .skill-tag {
+    background: #1e4a2a;
+    color: #4ade80;
+    border-color: #2a5a3a;
+}
+
+body.dark-mode .timeline-logo {
+    background: #2a2a2a;
+    border-color: #444;
+}
+
+body.dark-mode .timeline-title {
+    color: var(--text);
+}
+
+body.dark-mode .timeline-sub,
+body.dark-mode .timeline-desc {
+    color: #d1d5db;
+}
+
+body.dark-mode .timeline-date {
+    color: var(--muted);
+}
+
+body.dark-mode .resume-drop {
+    border-color: #444;
+    background: #1e1e1e;
+}
+
+body.dark-mode .resume-drop:hover {
+    border-color: #4ade80;
+    background: #1e4a2a;
+}
+
+body.dark-mode .resume-drop p {
+    color: var(--muted);
+}
+
+body.dark-mode .resume-drop strong {
+    color: #4ade80;
+}
+
+body.dark-mode .resume-file {
+    background: #2a5a3a;
+    border-color: #3a6a4a;
+}
+
+body.dark-mode .resume-file .file-meta {
+    color: var(--muted);
+}
+
+body.dark-mode .resume-file .file-remove {
+    color: #b0b0b0;
+}
+
+body.dark-mode .resume-file .file-remove:hover {
+    color: #ef4444;
+}
+
+body.dark-mode .readiness-label {
+    color: #d1d5db;
+}
+
+body.dark-mode .score-val {
+    color: #4ade80;
+}
+
+body.dark-mode .dot {
+    background: #444;
+}
+
+body.dark-mode .dot.filled {
+    background: #4ade80;
+}
+
+body.dark-mode .open-badge {
+    background: #1e4a2a;
+    color: #4ade80;
+    border-color: #2a5a3a;
+}
+
+body.dark-mode .cert-item {
+    background: #2a2a2a;
+    border-color: #444;
+}
+
+body.dark-mode .cert-info .cert-org {
+    color: var(--muted);
+}
+
+body.dark-mode .modal-overlay {
+    background: rgba(0,0,0,.6);
+}
+
+body.dark-mode .modal {
+    background: var(--card);
+    color: var(--text);
+}
+
+body.dark-mode .modal-title {
+    color: var(--text);
+}
+
+body.dark-mode .modal-close {
+    color: #b0b0b0;
+}
+
+body.dark-mode .modal-close:hover {
+    color: var(--text);
+}
+
+body.dark-mode .form-label {
+    color: var(--muted);
+}
+
+body.dark-mode .form-input,
+body.dark-mode .form-textarea {
+    background: #2a2a2a;
+    color: var(--text);
+    border-color: #444;
+}
+
+body.dark-mode .form-input:focus,
+body.dark-mode .form-textarea:focus {
+    border-color: #4ade80;
+}

@@ -533,7 +533,7 @@ body {
 
 /* || UTILITIES */
 
-/* || DARK MODE - COMPLETE OVERRIDES */
+/* || DARK MODE OVERRIDES */
 body.dark-mode {
   --color-background: #121212;
   --color-text: #e6e6e6;
