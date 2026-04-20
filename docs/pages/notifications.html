@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8">
     <title>Notifications – TalentStack</title>
-
-
+ 
+ 
     <!-- CSS (go up one level) -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/notifications.css">
     <link rel="icon" href="../resources/logo/best(1).svg" type="image/svg+xml">
   </head>
-
+ 
   <body>
-
+ 
     <!--  NAVBAR (same on every page) -->
     <header class="navbar">
       <div class="navbar-left">
@@ -21,11 +21,11 @@
         </a>
         <input type="text" placeholder="Search" class="search-bar">
       </div>
-
+ 
       <nav class="navbar-nav">
         <a href="dashboard.html">My Dashboard</a>
         <a href="jobs.html">Browse Jobs</a>
-
+ 
         <div class="dropdown">
           <button class="dropbtn">Career Prep ▾</button>
           <div class="dropdown-content">
@@ -34,10 +34,10 @@
             <a href="dashboard.html">Calendar</a>
           </div>
         </div>
-
+ 
         <a href="messages.html">Messaging</a>
         <a href="notifications.html">Notifications</a>
-
+ 
         <div class="dropdown">
           <button class="dropbtn">Profile ▾</button>
           <div class="dropdown-content">
@@ -48,14 +48,14 @@
         </div>
       </nav>
     </header>
-
-    <!-- PAGE CONTENT (COPIED FROM JAMIE'S COMMIT) -->
+ 
+    <!-- PAGE CONTENT -->
     <main class="dashboard">
       <div class="page-header">
         <h1>Notifications</h1>
         <button class="mark-all-btn" onclick="markAllRead()">Mark all as read</button>
       </div>
-
+ 
       <div class="filter-bar">
         <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
         <button class="filter-btn" onclick="setFilter('unread',this)">Unread</button>
@@ -63,54 +63,20 @@
         <button class="filter-btn" onclick="setFilter('jobs',this)">Jobs</button>
         <button class="filter-btn" onclick="setFilter('mentions',this)">Mentions</button>
       </div>
-
+ 
       <div id="feed"></div>
-
+ 
     </main>
     <div id="toast">
       Notification removed
       <button onclick="undoDismiss()">Undo</button>
     </div>
-
+ 
     <!-- JS -->
     <script src="../js/index.js"></script>
-
-    <!-- COPIED OVER JAMIE'S CS SCRIPT -->
+ 
     <script>
-      let notifications = [
-        { id:1, unread:true,  category:'connections', section:'today',
-          initials:'MR', color:'#4a8fd4',
-          text:'<strong>Maria Rodriguez</strong> sent you a connection request.',
-          time:'2 minutes ago', actions:['accept','decline'] },
-        { id:2, unread:true,  category:'jobs', section:'today',
-          icon:'💼', iconBg:'#fff3e0',
-          text:'<strong>Google</strong> viewed your application for <strong>Software Engineer Intern</strong>.',
-          time:'1 hour ago' },
-        { id:3, unread:true,  category:'connections', section:'today',
-          initials:'JK', color:'#8e44ad',
-          text:'<strong>James Kim</strong> accepted your connection request.',
-          time:'3 hours ago' },
-        { id:4, unread:true,  category:'mentions', section:'today',
-          initials:'SL', color:'#e05252',
-          text:'<strong>Sarah Lee</strong> mentioned you in a post: "Had a great mock interview with @John Smith today!"',
-          time:'5 hours ago' },
-        { id:5, unread:false, category:'jobs', section:'earlier',
-          icon:'🎉', iconBg:'#e8f5e9',
-          text:'You have a <strong>new job match</strong> — Frontend Developer at Stripe. Your profile is a 92% fit.',
-          time:'Yesterday at 4:30 PM' },
-        { id:6, unread:false, category:'connections', section:'earlier',
-          initials:'AP', color:'#1a9e7e',
-          text:'<strong>Alex Park</strong> sent you a connection request.',
-          time:'Yesterday at 1:12 PM', actions:['accept','decline'] },
-        { id:7, unread:false, category:'mentions', section:'earlier',
-          icon:'📣', iconBg:'#fce4ec',
-          text:'Your post <strong>"5 tips for acing a technical interview"</strong> received 47 likes.',
-          time:'2 days ago' },
-        { id:8, unread:false, category:'jobs', section:'earlier',
-          icon:'📋', iconBg:'#e3f2fd',
-          text:'<strong>Meta</strong> posted a new role matching your interests: <strong>Product Manager Intern</strong>.',
-          time:'3 days ago' }
-      ];
+      let notifications = [];
   
       let currentFilter = 'all';
       let lastRemoved   = null;
