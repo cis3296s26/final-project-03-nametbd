@@ -4,14 +4,13 @@
   <meta charset="UTF-8">
   <title>Messages - TalentStack</title>
 
-  <!-- CSS (go up one level) -->
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/messages.css">
   <link rel="icon" href="../resources/logo/best(1).svg" type="image/svg+xml">
 </head>
 
 <body>
 
-  <!--  NAVBAR (same on every page) -->
   <header class="navbar">
     <div class="navbar-left">
       <a href="../index.html">
@@ -47,15 +46,167 @@
     </nav>
   </header>
 
-  <!-- PAGE CONTENT -->
   <main class="dashboard">
     <div class="page-header">
       <h1>Messages</h1>
     </div>
-    
+
+    <div class="messages-layout">
+      <aside class="chat-list">
+        <div class="chat-list-header">Conversations</div>
+
+        <div class="chat-user active" data-name="Maria Rodriguez" onclick="selectChat('Maria Rodriguez', this)">
+          <div class="chat-avatar blue">MR</div>
+          <div class="chat-user-info">
+            <div class="chat-user-top">
+              <span class="chat-user-name">Maria Rodriguez</span>
+              <span class="chat-time">2m</span>
+            </div>
+            <div class="chat-preview">Hi, I saw your profile.</div>
+          </div>
+        </div>
+
+        <div class="chat-user" data-name="James Kim" onclick="selectChat('James Kim', this)">
+          <div class="chat-avatar purple">JK</div>
+          <div class="chat-user-info">
+            <div class="chat-user-top">
+              <span class="chat-user-name">James Kim</span>
+              <span class="chat-time">1h</span>
+            </div>
+            <div class="chat-preview">Are you applying for the same internship?</div>
+          </div>
+        </div>
+
+        <div class="chat-user" data-name="Sarah Lee" onclick="selectChat('Sarah Lee', this)">
+          <div class="chat-avatar red">SL</div>
+          <div class="chat-user-info">
+            <div class="chat-user-top">
+              <span class="chat-user-name">Sarah Lee</span>
+              <span class="chat-time">3h</span>
+            </div>
+            <div class="chat-preview">Good luck with your interview!</div>
+          </div>
+        </div>
+
+        <div class="chat-user" data-name="Alex Park" onclick="selectChat('Alex Park', this)">
+          <div class="chat-avatar green">AP</div>
+          <div class="chat-user-info">
+            <div class="chat-user-top">
+              <span class="chat-user-name">Alex Park</span>
+              <span class="chat-time">1d</span>
+            </div>
+            <div class="chat-preview">Let me know if you want to connect.</div>
+          </div>
+        </div>
+      </aside>
+
+      <section class="chat-window">
+        <div class="chat-header" id="chatHeader">Maria Rodriguez</div>
+
+        <div class="chat-messages" id="chatMessages"></div>
+
+        <div class="chat-input-area">
+          <input type="text" id="messageInput" placeholder="Type a message...">
+          <button class="send-btn" onclick="sendMessage()">Send</button>
+        </div>
+      </section>
+    </div>
   </main>
 
-  <!-- JS -->
   <script src="../js/index.js"></script>
+
+  <script>
+    let currentChat = 'Maria Rodriguez';
+
+    const conversations = {
+      'Maria Rodriguez': [
+        { sender: 'them', text: 'Hi, I saw your profile.' },
+        { sender: 'me', text: 'Thanks! Nice to meet you.' },
+        { sender: 'them', text: 'Your experience looks interesting.' }
+      ],
+      'James Kim': [
+        { sender: 'them', text: 'Are you applying for the same internship?' },
+        { sender: 'me', text: 'Yes, I am interested in it.' }
+      ],
+      'Sarah Lee': [
+        { sender: 'me', text: 'Good luck with your interview!' },
+        { sender: 'them', text: 'Thank you so much!' }
+      ],
+      'Alex Park': [
+        { sender: 'them', text: 'Let me know if you want to connect.' }
+      ]
+    };
+
+    function renderMessages() {
+      const chatBox = document.getElementById('chatMessages');
+      const messages = conversations[currentChat] || [];
+
+      chatBox.innerHTML = messages.map(msg => `
+        <div class="message-row ${msg.sender === 'me' ? 'mine' : 'theirs'}">
+          <div class="message-bubble">${msg.text}</div>
+        </div>
+      `).join('');
+
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function updatePreview(name, text) {
+      const userCard = document.querySelector(`.chat-user[data-name="${name}"]`);
+      if (!userCard) return;
+
+      const preview = userCard.querySelector('.chat-preview');
+      if (preview) {
+        preview.textContent = text;
+      }
+    }
+
+    function updateTime(name, timeText) {
+      const userCard = document.querySelector(`.chat-user[data-name="${name}"]`);
+      if (!userCard) return;
+
+      const time = userCard.querySelector('.chat-time');
+      if (time) {
+        time.textContent = timeText;
+      }
+    }
+
+    function selectChat(name, element) {
+      currentChat = name;
+      document.getElementById('chatHeader').textContent = name;
+
+      document.querySelectorAll('.chat-user').forEach(user => {
+        user.classList.remove('active');
+      });
+      element.classList.add('active');
+
+      renderMessages();
+    }
+
+    function sendMessage() {
+      const input = document.getElementById('messageInput');
+      const text = input.value.trim();
+
+      if (!text) return;
+
+      conversations[currentChat].push({
+        sender: 'me',
+        text: text
+      });
+
+      updatePreview(currentChat, text);
+      updateTime(currentChat, 'now');
+
+      input.value = '';
+      renderMessages();
+    }
+
+    document.getElementById('messageInput').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+
+    renderMessages();
+  </script>
 </body>
 </html>

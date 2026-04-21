@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Profile - TalentStack</title>
 
-    <!-- CSS (go up one level) -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/profile.css">
     <link rel="icon" href="../resources/logo/best(1).svg" type="image/svg+xml">
@@ -15,7 +14,6 @@
 
   <body>
 
-    <!--  NAVBAR (same on every page) -->
     <header class="navbar">
       <div class="navbar-left">
         <a href="../index.html">
@@ -52,66 +50,63 @@
     </header>
 
 
-    <!-- PAGE CONTENT -->
     <main class="page">
-
 
       <!-- Hero card -->
       <div class="hero">
         <div class="hero-banner"></div>
         <div class="hero-body">
           <div class="avatar-wrap">
-            <div class="avatar" id="avatarEl">JS</div>
+            <div class="avatar" id="avatarEl"></div>
             <div class="avatar-edit" title="Change photo">✎</div>
           </div>
-    
+
           <div class="profile-top">
             <div class="profile-identity">
-              <h2 id="displayName">John Smith</h2>
-              <div class="headline" id="displayHeadline">Software Engineering Student · Temple University</div>
-              <div class="location">📍 <span id="displayLocation">Philadelphia, PA</span></div>
-              <div class="open-badge"><span class="dot-anim"></span> Open to Work</div>
+              <h2 id="displayName">Your Name</h2>
+              <div class="headline" id="displayHeadline">Add your headline</div>
+              <div class="location">📍 <span id="displayLocation">Add your location</span></div>
             </div>
             <div class="profile-actions">
               <button class="btn-primary" onclick="openModal('about')">Edit Profile</button>
               <button class="btn-outline">Share Profile</button>
             </div>
           </div>
-    
+
           <div class="profile-stats">
-            <div class="stat"><div class="stat-num">312</div><div class="stat-label">Connections</div></div>
-            <div class="stat"><div class="stat-num">48</div><div class="stat-label">Profile Views</div></div>
-            <div class="stat"><div class="stat-num">7</div><div class="stat-label">Applications</div></div>
-            <div class="stat"><div class="stat-num">3</div><div class="stat-label">Interviews</div></div>
+            <div class="stat"><div class="stat-num" id="statConnections">0</div><div class="stat-label">Connections</div></div>
+            <div class="stat"><div class="stat-num" id="statViews">0</div><div class="stat-label">Profile Views</div></div>
+            <div class="stat"><div class="stat-num" id="statApplications">0</div><div class="stat-label">Applications</div></div>
+            <div class="stat"><div class="stat-num" id="statInterviews">0</div><div class="stat-label">Interviews</div></div>
           </div>
         </div>
       </div>
-    
+
       <!-- Profile completion -->
       <div class="completion-bar-wrap">
         <span class="completion-label">Profile Strength</span>
         <div class="bar-bg"><div class="bar-fill" id="completionBar"></div></div>
-        <span class="completion-pct">72%</span>
-        <span class="completion-tip">· Add certifications to reach 85%</span>
+        <span class="completion-pct" id="completionPct">0%</span>
+        <span class="completion-tip" id="completionTip">· Complete your profile to get started</span>
       </div>
-    
+
       <!-- Two-column grid -->
       <div class="profile-grid">
-    
+
         <!-- LEFT column -->
         <div class="left-col">
-    
+
           <!-- About -->
           <div class="card">
             <div class="card-header">
               <span class="card-title">About</span>
               <button class="card-edit" onclick="openModal('about')">Edit</button>
             </div>
-            <p class="about-text" id="aboutText">
-              I'm a junior Computer Science student at Temple University with a passion for building clean, user-friendly software. Currently exploring roles in full-stack development and product engineering. I've interned at two startups and love the intersection of design and code. Looking for Summer 2025 internship opportunities.
+            <p class="about-text" id="aboutText" style="color:#aaa;font-style:italic">
+              Tell employers about yourself — your background, interests, and what you're looking for.
             </p>
           </div>
-    
+
           <!-- Skills -->
           <div class="card">
             <div class="card-header">
@@ -119,71 +114,37 @@
               <button class="card-edit" onclick="openModal('skills')">Edit</button>
             </div>
             <div class="skills-grid" id="skillsGrid">
-              <span class="skill-tag">Java</span>
-              <span class="skill-tag">JavaScript</span>
-              <span class="skill-tag">React</span>
-              <span class="skill-tag">Spring Boot</span>
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">SQL</span>
-              <span class="skill-tag">Git</span>
-              <span class="skill-tag">REST APIs</span>
-              <span class="skill-tag">HTML / CSS</span>
-              <span class="skill-tag">Agile / Scrum</span>
+              <span style="color:#aaa;font-style:italic;font-size:14px">No skills added yet. Click Edit to add your skills.</span>
             </div>
           </div>
-    
+
           <!-- Experience -->
           <div class="card">
             <div class="card-header">
               <span class="card-title">Experience</span>
               <button class="card-edit" onclick="openModal('experience')">+ Add</button>
             </div>
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-logo">🏢</div>
-                <div class="timeline-body">
-                  <div class="timeline-title">Software Engineering Intern</div>
-                  <div class="timeline-sub">Acme Tech · Full-time</div>
-                  <div class="timeline-date">Jun 2024 – Aug 2024 · 3 mos · Philadelphia, PA</div>
-                  <div class="timeline-desc">Built internal tooling using React and Spring Boot. Improved API response time by 30% through query optimization. Collaborated in a team of 5 using Agile sprints.</div>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-logo">🚀</div>
-                <div class="timeline-body">
-                  <div class="timeline-title">Frontend Developer Intern</div>
-                  <div class="timeline-sub">Launchpad Labs · Part-time</div>
-                  <div class="timeline-date">Jan 2024 – May 2024 · 5 mos · Remote</div>
-                  <div class="timeline-desc">Designed and implemented responsive UI components for a SaaS dashboard used by 2,000+ users. Conducted user testing sessions and iterated on feedback.</div>
-                </div>
-              </div>
+            <div class="timeline" id="experienceList">
+              <div style="color:#aaa;font-style:italic;font-size:14px;padding:8px 0">No experience added yet. Click + Add to get started.</div>
             </div>
           </div>
-    
+
           <!-- Education -->
           <div class="card">
             <div class="card-header">
               <span class="card-title">Education</span>
-              <button class="card-edit" onclick="openModal('education')">Edit</button>
+              <button class="card-edit" onclick="openModal('education')">+ Add</button>
             </div>
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-logo">🎓</div>
-                <div class="timeline-body">
-                  <div class="timeline-title">Temple University</div>
-                  <div class="timeline-sub">B.S. Computer Science · GPA 3.6</div>
-                  <div class="timeline-date">2022 – 2026 (Expected)</div>
-                  <div class="timeline-desc">Dean's List 2023, 2024. Relevant coursework: Data Structures, Algorithms, Operating Systems, Software Engineering, Database Systems.</div>
-                </div>
-              </div>
+            <div class="timeline" id="educationList">
+              <div style="color:#aaa;font-style:italic;font-size:14px;padding:8px 0">No education added yet. Click + Add to get started.</div>
             </div>
           </div>
-    
+
         </div><!-- /left -->
-    
+
         <!-- RIGHT column -->
         <div class="right-col">
-    
+
           <!-- Resume -->
           <div class="card">
             <div class="card-header">
@@ -197,14 +158,14 @@
             <div class="resume-file" id="resumeFile" style="display:none">
               <span class="file-icon">📄</span>
               <div class="file-info">
-                <div class="file-name" id="fileName">John_Smith_Resume.pdf</div>
-                <div class="file-meta" id="fileMeta">Uploaded just now</div>
+                <div class="file-name" id="fileName"></div>
+                <div class="file-meta" id="fileMeta"></div>
               </div>
               <button class="file-remove" title="Remove" onclick="removeResume()">×</button>
             </div>
             <input type="file" id="resumeInput" accept=".pdf,.docx" style="display:none" onchange="handleResume(this)">
           </div>
-    
+
           <!-- Interview Readiness -->
           <div class="card">
             <div class="card-header">
@@ -215,38 +176,25 @@
             </div>
             <button class="btn-primary" style="width:100%;margin-top:16px;border-radius:8px" onclick="alert('Opening Interview Prep…')">Practice Now</button>
           </div>
-    
+
           <!-- Certifications -->
           <div class="card">
             <div class="card-header">
               <span class="card-title">Certifications</span>
               <button class="card-edit" onclick="openModal('cert')">+ Add</button>
             </div>
-            <div class="cert-list">
-              <div class="cert-item">
-                <span class="cert-icon">☁️</span>
-                <div class="cert-info">
-                  <div class="cert-name">AWS Cloud Practitioner</div>
-                  <div class="cert-org">Amazon Web Services · 2024</div>
-                </div>
-              </div>
-              <div class="cert-item">
-                <span class="cert-icon">🐍</span>
-                <div class="cert-info">
-                  <div class="cert-name">Python for Everybody</div>
-                  <div class="cert-org">Coursera / University of Michigan · 2023</div>
-                </div>
-              </div>
+            <div class="cert-list" id="certList">
+              <div style="color:#aaa;font-style:italic;font-size:14px;padding:8px 0">No certifications added yet. Click + Add to include yours.</div>
             </div>
           </div>
-    
+
         </div><!-- /right -->
       </div><!-- /grid -->
 
     </main>
 
 
-    <!-- ── Edit Modal ──────────────────────────────────── -->
+    <!-- Edit Modal -->
     <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
       <div class="modal" id="modalBox">
         <div class="modal-header">
@@ -261,18 +209,18 @@
       </div>
     </div>
 
-    <!-- JS -->
     <script src="../js/index.js"></script>
     <script>
-      /* ── Interview readiness data ── */
+
+      /* ── Interview readiness ── */
       const readiness = [
-        { label: 'Behavioral (STAR)',  score: 4, max: 5 },
-        { label: 'Data Structures',    score: 3, max: 5 },
-        { label: 'System Design',      score: 2, max: 5 },
-        { label: 'Communication',      score: 5, max: 5 },
-        { label: 'Problem Solving',    score: 3, max: 5 },
+        { label: 'Behavioral (STAR)',  score: 0, max: 5 },
+        { label: 'Data Structures',    score: 0, max: 5 },
+        { label: 'System Design',      score: 0, max: 5 },
+        { label: 'Communication',      score: 0, max: 5 },
+        { label: 'Problem Solving',    score: 0, max: 5 },
       ];
-    
+
       function renderReadiness() {
         const el = document.getElementById('readinessList');
         el.innerHTML = readiness.map(r => {
@@ -290,7 +238,45 @@
         }).join('');
       }
       renderReadiness();
-    
+
+      /* ── Profile completion ── */
+      function updateCompletion() {
+        const name = document.getElementById('displayName').textContent.trim();
+        const headline = document.getElementById('displayHeadline').textContent.trim();
+        const location = document.getElementById('displayLocation').textContent.trim();
+        const about = document.getElementById('aboutText').textContent.trim();
+        const skills = document.querySelectorAll('#skillsGrid .skill-tag').length;
+        const experience = document.querySelectorAll('#experienceList .timeline-item').length;
+        const education = document.querySelectorAll('#educationList .timeline-item').length;
+
+        const checks = [
+          name && name !== 'Your Name',
+          headline && headline !== 'Add your headline',
+          location && location !== 'Add your location',
+          about && !about.includes('Tell employers'),
+          skills > 0,
+          experience > 0,
+          education > 0,
+        ];
+        const pct = Math.round((checks.filter(Boolean).length / checks.length) * 100);
+        document.getElementById('completionBar').style.width = pct + '%';
+        document.getElementById('completionPct').textContent = pct + '%';
+
+        const tips = {
+          0: '· Complete your profile to get started',
+          14: '· Add your headline and location',
+          28: '· Add a bio in the About section',
+          42: '· Add your skills',
+          57: '· Add your experience',
+          71: '· Add your education',
+          85: '· Almost there — add certifications!',
+          100: '· Your profile is complete 🎉',
+        };
+        const nearest = Object.keys(tips).reverse().find(k => pct >= k);
+        document.getElementById('completionTip').textContent = tips[nearest];
+      }
+      updateCompletion();
+
       /* ── Resume upload ── */
       function handleResume(input) {
         const file = input.files[0];
@@ -300,93 +286,191 @@
         document.getElementById('resumeDrop').style.display = 'none';
         document.getElementById('resumeFile').style.display = 'flex';
       }
+
       function removeResume() {
         document.getElementById('resumeInput').value = '';
         document.getElementById('resumeDrop').style.display = 'block';
         document.getElementById('resumeFile').style.display = 'none';
       }
-    
+
       /* ── Modal system ── */
       const modals = {
         about: {
-          title: 'Edit About',
+          title: 'Edit Profile',
           html: () => `
             <div class="form-group">
               <label class="form-label">Full Name</label>
-              <input class="form-input" id="f_name" value="${document.getElementById('displayName').textContent}">
+              <input class="form-input" id="f_name" placeholder="Your full name" value="${document.getElementById('displayName').textContent === 'Your Name' ? '' : document.getElementById('displayName').textContent}">
             </div>
             <div class="form-group">
               <label class="form-label">Headline</label>
-              <input class="form-input" id="f_headline" value="${document.getElementById('displayHeadline').textContent}">
+              <input class="form-input" id="f_headline" placeholder="e.g. Software Engineering Student · Temple University" value="${document.getElementById('displayHeadline').textContent === 'Add your headline' ? '' : document.getElementById('displayHeadline').textContent}">
             </div>
             <div class="form-group">
               <label class="form-label">Location</label>
-              <input class="form-input" id="f_location" value="${document.getElementById('displayLocation').textContent}">
+              <input class="form-input" id="f_location" placeholder="e.g. Philadelphia, PA" value="${document.getElementById('displayLocation').textContent === 'Add your location' ? '' : document.getElementById('displayLocation').textContent}">
             </div>
             <div class="form-group">
               <label class="form-label">About / Bio</label>
-              <textarea class="form-textarea" id="f_about">${document.getElementById('aboutText').textContent.trim()}</textarea>
+              <textarea class="form-textarea" id="f_about" placeholder="Tell employers about yourself…">${document.getElementById('aboutText').dataset.value || ''}</textarea>
             </div>`,
           save: () => {
-            document.getElementById('displayName').textContent     = document.getElementById('f_name').value;
-            document.getElementById('displayHeadline').textContent = document.getElementById('f_headline').value;
-            document.getElementById('displayLocation').textContent = document.getElementById('f_location').value;
-            document.getElementById('aboutText').textContent       = document.getElementById('f_about').value;
-            // Update avatar initials
-            const initials = document.getElementById('f_name').value.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+            const name = document.getElementById('f_name').value.trim() || 'Your Name';
+            const headline = document.getElementById('f_headline').value.trim() || 'Add your headline';
+            const location = document.getElementById('f_location').value.trim() || 'Add your location';
+            const about = document.getElementById('f_about').value.trim();
+
+            document.getElementById('displayName').textContent = name;
+            document.getElementById('displayHeadline').textContent = headline;
+            document.getElementById('displayLocation').textContent = location;
+
+            const aboutEl = document.getElementById('aboutText');
+            if (about) {
+              aboutEl.textContent = about;
+              aboutEl.dataset.value = about;
+              aboutEl.style.color = '';
+              aboutEl.style.fontStyle = '';
+            } else {
+              aboutEl.textContent = 'Tell employers about yourself — your background, interests, and what you\'re looking for.';
+              aboutEl.style.color = '#aaa';
+              aboutEl.style.fontStyle = 'italic';
+            }
+
+            const initials = name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
             document.getElementById('avatarEl').textContent = initials;
+            updateCompletion();
           }
         },
+
         skills: {
           title: 'Edit Skills',
-          html: () => `
-            <div class="form-group">
-              <label class="form-label">Skills (comma-separated)</label>
-              <textarea class="form-textarea" id="f_skills" style="min-height:60px">${
-                Array.from(document.querySelectorAll('#skillsGrid .skill-tag')).map(t=>t.textContent).join(', ')
-              }</textarea>
-            </div>`,
+          html: () => {
+            const existing = Array.from(document.querySelectorAll('#skillsGrid .skill-tag')).map(t => t.textContent).join(', ');
+            return `
+              <div class="form-group">
+                <label class="form-label">Skills (comma-separated)</label>
+                <textarea class="form-textarea" id="f_skills" style="min-height:80px" placeholder="e.g. Java, Python, React, SQL">${existing}</textarea>
+              </div>`;
+          },
           save: () => {
-            const tags = document.getElementById('f_skills').value.split(',').map(s=>s.trim()).filter(Boolean);
-            document.getElementById('skillsGrid').innerHTML = tags.map(t=>`<span class="skill-tag">${t}</span>`).join('');
+            const tags = document.getElementById('f_skills').value.split(',').map(s => s.trim()).filter(Boolean);
+            const grid = document.getElementById('skillsGrid');
+            if (tags.length) {
+              grid.innerHTML = tags.map(t => `<span class="skill-tag">${t}</span>`).join('');
+            } else {
+              grid.innerHTML = '<span style="color:#aaa;font-style:italic;font-size:14px">No skills added yet. Click Edit to add your skills.</span>';
+            }
+            updateCompletion();
           }
         },
+
         experience: {
           title: 'Add Experience',
           html: () => `
             <div class="form-group"><label class="form-label">Job Title</label><input class="form-input" id="f_jtitle" placeholder="e.g. Software Engineer Intern"></div>
             <div class="form-group"><label class="form-label">Company</label><input class="form-input" id="f_company" placeholder="e.g. Google"></div>
+            <div class="form-group"><label class="form-label">Employment Type</label><input class="form-input" id="f_emptype" placeholder="e.g. Full-time, Part-time, Remote"></div>
             <div class="form-row">
               <div class="form-group"><label class="form-label">Start</label><input class="form-input" id="f_start" placeholder="Jun 2025"></div>
               <div class="form-group"><label class="form-label">End</label><input class="form-input" id="f_end" placeholder="Aug 2025 or Present"></div>
             </div>
             <div class="form-group"><label class="form-label">Description</label><textarea class="form-textarea" id="f_edesc" placeholder="Key responsibilities and achievements…"></textarea></div>`,
-          save: () => { /* Would POST to backend */ closeModal(); }
+          save: () => {
+            const title = document.getElementById('f_jtitle').value.trim();
+            const company = document.getElementById('f_company').value.trim();
+            const emptype = document.getElementById('f_emptype').value.trim();
+            const start = document.getElementById('f_start').value.trim();
+            const end = document.getElementById('f_end').value.trim();
+            const desc = document.getElementById('f_edesc').value.trim();
+            if (!title || !company) return;
+
+            const list = document.getElementById('experienceList');
+            // Remove empty state placeholder if present
+            const placeholder = list.querySelector('div[style]');
+            if (placeholder) placeholder.remove();
+
+            const item = document.createElement('div');
+            item.className = 'timeline-item';
+            item.innerHTML = `
+              <div class="timeline-logo">🏢</div>
+              <div class="timeline-body">
+                <div class="timeline-title">${title}</div>
+                <div class="timeline-sub">${company}${emptype ? ' · ' + emptype : ''}</div>
+                <div class="timeline-date">${start}${end ? ' – ' + end : ''}</div>
+                ${desc ? `<div class="timeline-desc">${desc}</div>` : ''}
+              </div>`;
+            list.appendChild(item);
+            updateCompletion();
+          }
         },
+
         education: {
-          title: 'Edit Education',
+          title: 'Add Education',
           html: () => `
-            <div class="form-group"><label class="form-label">School</label><input class="form-input" id="f_school" value="Temple University"></div>
-            <div class="form-group"><label class="form-label">Degree & Field</label><input class="form-input" id="f_degree" value="B.S. Computer Science"></div>
+            <div class="form-group"><label class="form-label">School</label><input class="form-input" id="f_school" placeholder="e.g. Temple University"></div>
+            <div class="form-group"><label class="form-label">Degree & Field</label><input class="form-input" id="f_degree" placeholder="e.g. B.S. Computer Science"></div>
             <div class="form-row">
-              <div class="form-group"><label class="form-label">Start Year</label><input class="form-input" id="f_gradstart" value="2022"></div>
-              <div class="form-group"><label class="form-label">End Year</label><input class="form-input" id="f_gradend" value="2026"></div>
+              <div class="form-group"><label class="form-label">Start Year</label><input class="form-input" id="f_gradstart" placeholder="2022"></div>
+              <div class="form-group"><label class="form-label">End Year</label><input class="form-input" id="f_gradend" placeholder="2026"></div>
             </div>
-            <div class="form-group"><label class="form-label">GPA (optional)</label><input class="form-input" id="f_gpa" value="3.6"></div>`,
-          save: () => { closeModal(); }
+            <div class="form-group"><label class="form-label">GPA (optional)</label><input class="form-input" id="f_gpa" placeholder="e.g. 3.8"></div>`,
+          save: () => {
+            const school = document.getElementById('f_school').value.trim();
+            const degree = document.getElementById('f_degree').value.trim();
+            const start = document.getElementById('f_gradstart').value.trim();
+            const end = document.getElementById('f_gradend').value.trim();
+            const gpa = document.getElementById('f_gpa').value.trim();
+            if (!school) return;
+
+            const list = document.getElementById('educationList');
+            const placeholder = list.querySelector('div[style]');
+            if (placeholder) placeholder.remove();
+
+            const item = document.createElement('div');
+            item.className = 'timeline-item';
+            item.innerHTML = `
+              <div class="timeline-logo">🎓</div>
+              <div class="timeline-body">
+                <div class="timeline-title">${school}</div>
+                <div class="timeline-sub">${degree}${gpa ? ' · GPA ' + gpa : ''}</div>
+                <div class="timeline-date">${start}${end ? ' – ' + end : ''}</div>
+              </div>`;
+            list.appendChild(item);
+            updateCompletion();
+          }
         },
+
         cert: {
           title: 'Add Certification',
           html: () => `
             <div class="form-group"><label class="form-label">Certification Name</label><input class="form-input" id="f_certname" placeholder="e.g. AWS Solutions Architect"></div>
             <div class="form-group"><label class="form-label">Issuing Organization</label><input class="form-input" id="f_certorg" placeholder="e.g. Amazon Web Services"></div>
             <div class="form-group"><label class="form-label">Year</label><input class="form-input" id="f_certyear" placeholder="2025"></div>`,
-          save: () => { closeModal(); }
+          save: () => {
+            const name = document.getElementById('f_certname').value.trim();
+            const org = document.getElementById('f_certorg').value.trim();
+            const year = document.getElementById('f_certyear').value.trim();
+            if (!name) return;
+
+            const list = document.getElementById('certList');
+            const placeholder = list.querySelector('div[style]');
+            if (placeholder) placeholder.remove();
+
+            const item = document.createElement('div');
+            item.className = 'cert-item';
+            item.innerHTML = `
+              <span class="cert-icon">🏅</span>
+              <div class="cert-info">
+                <div class="cert-name">${name}</div>
+                <div class="cert-org">${org}${year ? ' · ' + year : ''}</div>
+              </div>`;
+            list.appendChild(item);
+          }
         }
       };
-    
+
       let currentModal = null;
-    
+
       function openModal(key) {
         currentModal = key;
         const m = modals[key];
@@ -394,16 +478,16 @@
         document.getElementById('modalBody').innerHTML = m.html();
         document.getElementById('modalOverlay').classList.add('open');
       }
-    
+
       function closeModal() {
         document.getElementById('modalOverlay').classList.remove('open');
         currentModal = null;
       }
-    
+
       function closeModalOutside(e) {
         if (e.target === document.getElementById('modalOverlay')) closeModal();
       }
-    
+
       function saveModal() {
         if (currentModal && modals[currentModal].save) {
           modals[currentModal].save();
@@ -411,6 +495,6 @@
         closeModal();
       }
     </script>
-    
+
   </body>
 </html>

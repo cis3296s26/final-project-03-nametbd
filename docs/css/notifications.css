@@ -1,4 +1,4 @@
-/* Copied Jamie's code out of the html style header*/
+/* Copied Jaime's code out of the html style header*/
 
 *, *::before, *::after { 
     box-sizing: border-box;
@@ -74,12 +74,30 @@ body {
 .mark-all-btn:hover { color: #2d6235; }
 
 /* ── Filter tabs ── */
-.filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+.filter-bar {
+    display: flex;
+    flex-direction: row;   /* explicit row direction */
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
 
 .filter-btn {
-    padding: 6px 16px; border-radius: 20px; border: 1.5px solid #d5d2cd;
-    background: #fff; font-size: 13px; font-weight: 500; color: #555; cursor: pointer; transition: all .15s;
+    display: inline-flex;       /* add this */
+    align-items: center;        /* add this */
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1.5px solid #d5d2cd;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    color: #555;
+    cursor: pointer;
+    transition: all .15s;
+    white-space: nowrap;        /* prevents text wrapping */
+    align-items: flex-start;
 }
+
 
 .filter-btn:hover { border-color: #3a7d44; color: #3a7d44; }
 .filter-btn.active { background: #3a7d44; border-color: #3a7d44; color: #fff; }
@@ -137,16 +155,30 @@ body {
 
 .notif-actions { display: flex; gap: 8px; margin-top: 10px; }
 .btn-accept {
-    padding: 5px 14px; border-radius: 20px; background: #3a7d44; color: #fff;
-    border: none; font-size: 12px; font-weight: 600; cursor: pointer; transition: background .15s;
+    padding: 5px 14px;
+    border-radius: 20px;
+    background: #3a7d44;
+    color: #fff;
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
 }
 
 .btn-accept:hover { background: #2d6235; }
-.btn-decline {
-    padding: 5px 14px; border-radius: 20px; background: #fff; color: #555;
-    border: 1.5px solid #d5d2cd; font-size: 12px; font-weight: 600; cursor: pointer; transition: all .15s;
-}
 
+.btn-decline {
+    padding: 5px 14px;
+    border-radius: 20px;
+    background: #fff;
+    color: #555;
+    border: 1.5px solid #d5d2cd;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .15s;
+}
 .btn-decline:hover { border-color: #999; color: #333; }
 
 .notif-dismiss {
@@ -187,6 +219,7 @@ body {
 }
 .notif-card.removing { animation: slideOut .22s ease forwards; overflow: hidden; }
 
+<<<<<<< HEAD
 /* notifications.css - DARK MODE */
 body.dark-mode .dashboard {
   background: #121212;
@@ -308,3 +341,11 @@ body.dark-mode #toast button {
   color: white;
   border: 1px solid #2563eb;
 }
+=======
+.dashboard {
+    display: block;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+}
+>>>>>>> 387f483735f2802368e0b3a0144e4e44de6d1250
