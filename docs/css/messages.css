@@ -20,7 +20,7 @@
   background: white;
   border-radius: 16px;
   padding: 18px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
 }
 
 .chat-list-header {
@@ -42,14 +42,14 @@
 
 .chat-user:hover,
 .chat-user.active {
-  background: #f5f7ff;
+  background: var(--color-white);
 }
 
 .chat-avatar {
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  color: white;
+  color: var(--color-white);
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -91,7 +91,7 @@
 
 .chat-time {
   font-size: 12px;
-  color: #888;
+  color: var(--color-placeholder);
   flex-shrink: 0;
   margin-left: 8px;
 }
@@ -107,10 +107,10 @@
 .chat-window {
   flex: 1;
   min-width: 0;
-  background: white;
+  background: var(--color-white);
   border-radius: 16px;
   padding: 20px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
   display: flex;
   flex-direction: column;
   height: 540px;
@@ -121,7 +121,7 @@
   font-size: 20px;
   font-weight: 700;
   padding-bottom: 14px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--color-border);
   margin-bottom: 18px;
   flex-shrink: 0;
 }
@@ -158,11 +158,11 @@
 }
 
 .message-row.mine .message-bubble {
-  background: #dbeafe;
+  background: #cfe0c3;
 }
 
 .message-row.theirs .message-bubble {
-  background: #f1f3f5;
+  background: var(--color-gray-fill);
 }
 
 .chat-input-area {
@@ -170,7 +170,7 @@
   gap: 12px;
   margin-top: 18px;
   padding-top: 16px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--color-divider);
   flex-shrink: 0;
 }
 
@@ -178,7 +178,7 @@
   flex: 1;
   min-width: 0;
   padding: 12px 14px;
-  border: 1px solid #dcdcdc;
+  border: 1px solid var(--color-border);
   border-radius: 10px;
   font-size: 15px;
 }
@@ -190,7 +190,7 @@
 
 .send-btn {
   border: none;
-  background: #3b82f6;
+  background: var(--color-primary-hover);
   color: white;
   padding: 12px 18px;
   border-radius: 10px;

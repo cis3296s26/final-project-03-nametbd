@@ -2,10 +2,11 @@
 :root {
 --color-primary: #709775;
 --color-primary-hover: #5a7a60;
+--secondary-color: #cfe0c3;
 --color-link: #6F8F73;
 --color-green-tint: #f1f5f2;
 
---secondary-color: #cfe0c3;
+
 --dark-green: #23231A;
 --light-blue: #8FABAF;
 --blue: #4F759B;
