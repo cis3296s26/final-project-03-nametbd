@@ -1,4 +1,8 @@
+//Landing/auth screen behavior. This file manages dropdown menus, profile hydration for shared layouts, password toggle icons, and switching between login/register panels.
+
+// Initialize shared landing-page UI after the DOM is ready.
 document.addEventListener('DOMContentLoaded', () => {
+    // Dropdown menus are mutually exclusive: opening one closes the others.
     const dropdowns = document.querySelectorAll('.dropdown');
 
     dropdowns.forEach((dropdown) => {
@@ -30,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // If this shared script is running on a profile page, hook the save button into profile helpers.
     const saveBtn = document.getElementById('saveProfileButton');
     if (saveBtn && window.ProfileApi && window.loadProfile && window.saveProfile) {
         window.loadProfile();
@@ -38,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // If profile display fields exist, fetch profile data and fill the basic summary values.
     if (document.getElementById('displayEmail') && window.ProfileApi) {
         window.ProfileApi.getProfile()
             .then((profile) => {
@@ -66,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // FOR PASSWORD SHOW/HIDE
+// Toggle one password input between hidden and visible text states and swap the eye icon.
 function togglePassword(icon) {
     const inputGroup = icon.closest(".input-group");
     const passwordInput = inputGroup.querySelector("input");
@@ -95,6 +102,7 @@ function togglePassword(icon) {
 
 
 // FOR CHANGING SCREEN FROM REGISTER TO SIGN IN + RESPONSIVE CARD RESIZING
+// Cache the major auth screen panels/buttons used for login/register mode switching.
 const formContainer = document.querySelector(".form-container");
 const loginContainer = document.querySelector(".login-container");
 const registerContainer = document.querySelector(".register-container");
@@ -107,6 +115,7 @@ const registerForm = document.querySelector(".register-container");
 
 const fluid = document.querySelector("#fluid");
 
+// Shift the animated auth layout back to the login view.
 function viewLogin() {
     loginForm.style.left = "0";
     registerForm.style.left = "100%";
@@ -119,6 +128,7 @@ function viewLogin() {
     fluid.classList.add("fluid-animate");
 }
 
+// Shift the animated auth layout over to the registration view.
 function viewRegister() {
     loginForm.style.left = "-100%";
     registerForm.style.left = "0";
@@ -131,9 +141,11 @@ function viewRegister() {
     fluid.classList.add("fluid-animate");
 }
 
+// Bind the mode-switch buttons so the user can move between auth views.
 registerBtn.addEventListener('click', viewRegister);
 loginBtn.addEventListener('click', viewLogin);
 
+// Remove the temporary animation class once the CSS transition completes.
 fluid.addEventListener('animationend', () => {
     fluid.classList.remove("fluid-animate");
 })

@@ -2,20 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Profile</title>
-
-    <!-- CSS (go up one level) -->
+    <title>Messages - TalentStack</title>
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/messages.css">
+    <link rel="icon" href="/assets/resources/logo/best(1).svg" type="image/svg+xml">
 </head>
 
 <body>
-
-<!--  NAVBAR (same on every page) -->
 <header class="navbar">
     <div class="navbar-left">
         <a href="/">
-        <div class="logo">TS</div>
-    </a>
+            <img src="/assets/resources/logo/best(1).svg" alt="TalentStack logo" class="logo">
+        </a>
         <input type="text" placeholder="Search" class="search-bar">
     </div>
 
@@ -24,11 +22,11 @@
         <a href="/assets/pages/jobs.html">Browse Jobs</a>
 
         <div class="dropdown">
-            <button class="dropbtn">Career Prep ▾</button>
+            <button class="dropbtn" type="button">Career Prep</button>
             <div class="dropdown-content">
                 <a href="/assets/pages/dashboard.html">Application Status</a>
                 <a href="/assets/pages/dashboard.html">Interview Prep</a>
-                <a href="/assets/pages/dashboard.html">Calendar</a>
+                <a href="/assets/pages/calendar.html">Calendar</a>
             </div>
         </div>
 
@@ -36,26 +34,85 @@
         <a href="/assets/pages/notifications.html">Notifications</a>
 
         <div class="dropdown">
-            <button class="dropbtn">Profile ▾</button>
+            <button class="dropbtn" type="button">Profile</button>
             <div class="dropdown-content">
                 <a href="/assets/pages/profile.html">Profile</a>
                 <a href="/assets/pages/settings.html">Settings</a>
-                <a href="#">Sign Out</a>
+                <a href="#" data-action="logout">Sign Out</a>
             </div>
         </div>
     </nav>
 </header>
 
-<!-- PAGE CONTENT -->
 <main class="dashboard">
     <div class="page-header">
         <h1>Messages</h1>
     </div>
 
+    <div class="messages-layout">
+        <aside class="chat-list">
+            <div class="chat-list-header">Conversations</div>
+
+            <button class="chat-user active" type="button" data-chat="Maria Rodriguez">
+                <div class="chat-avatar blue">MR</div>
+                <div class="chat-user-info">
+                    <div class="chat-user-top">
+                        <span class="chat-user-name">Maria Rodriguez</span>
+                        <span class="chat-time">2m</span>
+                    </div>
+                    <div class="chat-preview">Hi, I saw your profile.</div>
+                </div>
+            </button>
+
+            <button class="chat-user" type="button" data-chat="James Kim">
+                <div class="chat-avatar purple">JK</div>
+                <div class="chat-user-info">
+                    <div class="chat-user-top">
+                        <span class="chat-user-name">James Kim</span>
+                        <span class="chat-time">1h</span>
+                    </div>
+                    <div class="chat-preview">Are you applying for the same internship?</div>
+                </div>
+            </button>
+
+            <button class="chat-user" type="button" data-chat="Sarah Lee">
+                <div class="chat-avatar red">SL</div>
+                <div class="chat-user-info">
+                    <div class="chat-user-top">
+                        <span class="chat-user-name">Sarah Lee</span>
+                        <span class="chat-time">3h</span>
+                    </div>
+                    <div class="chat-preview">Good luck with your interview!</div>
+                </div>
+            </button>
+
+            <button class="chat-user" type="button" data-chat="Alex Park">
+                <div class="chat-avatar green">AP</div>
+                <div class="chat-user-info">
+                    <div class="chat-user-top">
+                        <span class="chat-user-name">Alex Park</span>
+                        <span class="chat-time">1d</span>
+                    </div>
+                    <div class="chat-preview">Let me know if you want to connect.</div>
+                </div>
+            </button>
+        </aside>
+
+        <section class="chat-window">
+            <div class="chat-header" id="chatHeader">Maria Rodriguez</div>
+            <div class="chat-messages" id="chatMessages"></div>
+
+            <div class="chat-input-area">
+                <input type="text" id="messageInput" placeholder="Type a message...">
+                <button class="send-btn" id="sendMessageBtn" type="button">Send</button>
+            </div>
+        </section>
+    </div>
 </main>
 
-<!-- JS -->
-
+<script src="/assets/js/auth-session.js"></script>
+<script src="/assets/js/auth-api.js"></script>
+<script src="/assets/js/messages-page.js"></script>
 <script src="/assets/js/nav.js"></script>
 </body>
 </html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Career Calendar</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="icon" href="/assets/resources/logo/best(1).svg" type="image/svg+xml">
+</head>
+<body>
+<header class="navbar">
+    <div class="navbar-left">
+        <a href="/">
+            <img src="/assets/resources/logo/best(1).svg" alt="Logo" class="logo">
+        </a>
+        <input type="text" placeholder="Search" class="search-bar">
+    </div>
+
+    <nav class="navbar-nav">
+        <a href="/assets/pages/dashboard.html">My Dashboard</a>
+        <a href="/assets/pages/jobs.html">Browse Jobs</a>
+
+        <div class="dropdown">
+            <button class="dropbtn">Career Prep</button>
+            <div class="dropdown-content">
+                <a href="/assets/pages/applications.html">Application Status</a>
+                <a href="/assets/pages/dashboard.html">Interview Prep</a>
+                <a href="/assets/pages/calendar.html">Calendar</a>
+            </div>
+        </div>
+
+        <a href="/assets/pages/messages.html">Messaging</a>
+        <a href="/assets/pages/notifications.html">Notifications</a>
+
+        <div class="dropdown">
+            <button class="dropbtn">Profile</button>
+            <div class="dropdown-content">
+                <a href="/assets/pages/profile.html">Profile</a>
+                <a href="/assets/pages/settings.html">Settings</a>
+                <a href="#" data-action="logout">Sign Out</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="calendar-page">
+    <div class="page-header calendar-page-header">
+        <div>
+            <h1>Career Calendar</h1>
+            <p>See your applications, interviews, and follow-ups in a real calendar layout.</p>
+        </div>
+    </div>
+
+    <section class="card calendar-shell">
+        <div class="calendar-toolbar">
+            <div class="calendar-toolbar-group">
+                <button type="button" class="calendar-nav-btn" id="calendarPrevBtn">Previous</button>
+                <button type="button" class="calendar-nav-btn" id="calendarTodayBtn">Today</button>
+                <button type="button" class="calendar-nav-btn" id="calendarNextBtn">Next</button>
+            </div>
+
+            <h2 id="calendarCurrentLabel" class="calendar-current-label">Month View</h2>
+
+            <div class="calendar-view-switch" role="tablist" aria-label="Calendar views">
+                <button type="button" class="calendar-view-btn active" data-view="month">Month</button>
+                <button type="button" class="calendar-view-btn" data-view="week">Week</button>
+                <button type="button" class="calendar-view-btn" data-view="day">Day</button>
+            </div>
+        </div>
+
+        <p id="calendarStatus" aria-live="polite" class="calendar-status"></p>
+
+        <div class="calendar-content">
+            <div class="calendar-main">
+                <div id="calendarViewContainer" class="calendar-view-container"></div>
+            </div>
+
+            <aside class="calendar-sidebar">
+                <h3 id="calendarSidebarTitle">Upcoming in this view</h3>
+                <ul id="calendarAgendaList" class="calendar-agenda-list"></ul>
+            </aside>
+        </div>
+    </section>
+</main>
+
+<script src="/assets/js/auth-session.js"></script>
+<script src="/assets/js/auth-api.js"></script>
+<script src="/assets/js/jobs-api.js"></script>
+<script src="/assets/js/calendar-page.js"></script>
+<script src="/assets/js/nav.js"></script>
+</body>
+</html>

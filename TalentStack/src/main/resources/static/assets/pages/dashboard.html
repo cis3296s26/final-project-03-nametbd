@@ -27,9 +27,9 @@
         <div class="dropdown">
             <button class="dropbtn">Career Prep ▾</button>
             <div class="dropdown-content">
-                <a href="dashboard.html">Application Status</a>
+                <a href="applications.html">Application Status</a>
                 <a href="dashboard.html">Interview Prep</a>
-                <a href="dashboard.html">Calendar</a>
+                <a href="/assets/pages/calendar.html">Calendar</a>
             </div>
         </div>
 
@@ -41,7 +41,7 @@
             <div class="dropdown-content">
                 <a href="/assets/pages/profile.html">Profile</a>
                 <a href="/assets/pages/settings.html">Settings</a>
-                <a href="#">Sign Out</a>
+                <a href="#" data-action="logout">Sign Out</a>
             </div>
         </div>
     </nav>
@@ -58,27 +58,18 @@
     <aside class="left-sidebar">
         <section class="card profile-card">
             <div class="banner"></div>
-            <div class="avatar"></div>
-            <h2>John Smith</h2>
-            <p>Temple Univeristy Undergrad</p>
+            <div class="avatar" id="dashboardProfileAvatar" aria-label="Profile avatar"></div>
+            <h2 id="dashboardProfileName">Loading...</h2>
+            <p id="dashboardProfileTagline">Loading your profile...</p>
             <hr>
             <div class="sidebar-stat">
-                <span>Profile viewers</span>
-                <strong>48</strong>
+                <span>Applications submitted</span>
+                <strong id="dashboardApplicationsCount">0</strong>
             </div>
             <div class="sidebar-stat">
-                <span>Connections</span>
-                <strong>312</strong>
+                <span>Interviews scheduled</span>
+                <strong id="dashboardInterviewsCount">0</strong>
             </div>
-        </section>
-
-        <section class="card">
-            <h3>Saved</h3>
-            <ul>
-                <li>My items</li>
-                <li>Groups</li>
-                <li>Events</li>
-            </ul>
         </section>
     </aside>
 
@@ -86,41 +77,20 @@
     <!-- Main Feed-->
     <section class="feed">
         <section class="card post">
-            <h3>Lorem Ipsum</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sollicitudin
-                elementum augue, ut accumsan ante gravida a. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus. Vestibulum porta ante tincidunt justo condimentum tempus.
-                Vestibulum fermentum tristique ultrices. Nulla metus leo, vestibulum eget ultrices ac, malesuada sed sapien.
-                Duis nisl erat, tempus at scelerisque nec, pellentesque nec arcu. Mauris in faucibus leo. Pellentesque varius,
-                turpis vitae consequat ullamcorper, elit quam congue urna, ut ultricies magna dui ut mauris. Etiam quis tellus nisi.
-                Ut eleifend ligula fringilla ligula posuere tempor. Nulla eget vulputate ligula. Duis fringilla nibh neque, in lobortis mi
-                volutpat at. Morbi vel finibus massa, id rutrum lacus. Duis sit amet lorem semper magna faucibus aliquet eget congue sem.
-                Cras ultricies dui vitae nisi ornare vulputate. </p>
-        </section>
-
-        <section class="card post">
-            <h3>Lorem Ipsum</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sollicitudin
-                elementum augue, ut accumsan ante gravida a. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus. Vestibulum porta ante tincidunt justo condimentum tempus.
-                Vestibulum fermentum tristique ultrices. Nulla metus leo, vestibulum eget ultrices ac, malesuada sed sapien.
-                Duis nisl erat, tempus at scelerisque nec, pellentesque nec arcu. Mauris in faucibus leo. Pellentesque varius,
-                turpis vitae consequat ullamcorper, elit quam congue urna, ut ultricies magna dui ut mauris. Etiam quis tellus nisi.
-                Ut eleifend ligula fringilla ligula posuere tempor. Nulla eget vulputate ligula. Duis fringilla nibh neque, in lobortis mi
-                volutpat at. Morbi vel finibus massa, id rutrum lacus. Duis sit amet lorem semper magna faucibus aliquet eget congue sem.
-                Cras ultricies dui vitae nisi ornare vulputate. </p>
-        </section>
-
-        <section class="card post">
             <h3>Recommended Jobs (<span id="dashboardJobsCount">0</span>)</h3>
             <p id="dashboardJobsStatus" aria-live="polite"></p>
-            <ul id="dashboardJobsList"></ul>
+            <div id="dashboardJobsList" class="job-card-list"></div>
+            <div class="job-pagination">
+                <button id="dashboardPrevBtn" class="secondary-btn" type="button">Previous</button>
+                <span id="dashboardPageLabel" class="job-pagination-label">Page 1</span>
+                <button id="dashboardNextBtn" class="secondary-btn" type="button">Next</button>
+            </div>
         </section>
 
         <section class="card post">
             <h3>Saved Jobs</h3>
             <p id="savedJobsStatus" aria-live="polite"></p>
-            <ul id="savedJobsList"></ul>
+            <div id="savedJobsList" class="job-card-list"></div>
         </section>
 
     </section>
@@ -132,6 +102,8 @@
 
 <!-- JS -->
 <script src="/assets/js/auth-session.js"></script>
+<script src="/assets/js/auth-api.js"></script>
+<script src="/assets/js/profile-api.js"></script>
 <script src="/assets/js/jobs-api.js"></script>
 <script src="/assets/js/jobs-saved.js"></script>
 <script src="/assets/js/dashboard-jobs.js"></script>

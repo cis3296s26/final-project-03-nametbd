@@ -22,7 +22,7 @@
             <div class="dropdown-content">
                 <a href="/assets/pages/dashboard.html">Application Status</a>
                 <a href="/assets/pages/dashboard.html">Interview Prep</a>
-                <a href="/assets/pages/dashboard.html">Calendar</a>
+                <a href="/assets/pages/calendar.html">Calendar</a>
             </div>
         </div>
 
@@ -34,7 +34,7 @@
             <div class="dropdown-content">
                 <a href="/assets/pages/profile.html">Profile</a>
                 <a href="/assets/pages/settings.html">Settings</a>
-                <a href="#">Sign Out</a>
+                <a href="#" data-action="logout">Sign Out</a>
             </div>
         </div>
     </nav>
@@ -70,6 +70,9 @@
 
             <p id="jobsSearchStatus" aria-live="polite"></p>
             <button type="submit" class="primary-btn">Search</button>
+            <button type="button" id="savePreferencesBtn" class="secondary-btn">
+                Save Preferences
+            </button>
         </form>
     </section>
 
@@ -86,6 +89,7 @@
 </main>
 
 <script src="/assets/js/auth-session.js"></script>
+<script src="/assets/js/auth-api.js"></script>
 <script src="/assets/js/jobs-api.js"></script>
 <script src="/assets/js/jobs-saved.js"></script>
 <script src="/assets/js/jobs-search.js"></script>

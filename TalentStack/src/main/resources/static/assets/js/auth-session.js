@@ -1,18 +1,26 @@
-(function () {
-    //store path for login to redirect here if the session is expired
-    const LOGIN_ROUTE = '/assets/pages/login.html';
+//Session-aware API client. This file centralizes fetch requests, cookie-based auth, JSON parsing, 401 handling, and page redirects for protected routes.
 
-    //main reusable wrapper function. accepts a url and optional option object
+(function () {
+        
+    //Redirect targets and route allowlist used by the auth/session guard.
+    const LOGIN_ROUTE = '/assets/pages/login.html';
+    const DASHBOARD_ROUTE = '/assets/pages/dashboard.html';
+    const PUBLIC_PATHS = new Set([
+            '/assets/pages/login.html',
+            '/assets/pages/register.html'
+    ]);
+
+    //Unified fetch wrapper: adds default headers, includes cookies, parses JSON, and throws friendly errors.
     async function request(url, options = {}) {
         const headers = {
-                    ...(options.headers || {})
-                };
+            ...(options.headers || {})
+        };
 
-                const isFormData = options.body instanceof FormData;
+        const isFormData = options.body instanceof FormData;
 
-                if (!isFormData && !headers['Content-Type']) {
-                    headers['Content-Type'] = 'application/json';
-                }
+        if (!isFormData && !headers['Content-Type']) {
+            headers['Content-Type'] = 'application/json';
+        }
 
         const response = await fetch(url, {
             //tells browser to include cookies with request for session authentication
@@ -20,7 +28,6 @@
             ...options,
             headers
         });
-
 
         //read content-type header. if not present use an empty string
         const contentType = response.headers.get('content-type') || '';
@@ -46,26 +53,60 @@
         return payload;
     }
 
-function redirectToLogin() {
-    window.location.href = LOGIN_ROUTE;
-}
-
-async function ensureAuthenticated() {
-    try {
-        await request('/api/profile', { method: 'GET' });
-        return true;
-    } catch (error) {
-        if (error.status === 401) {
-            redirectToLogin();
-            return false;
-        }
-    throw error;
+    //Send the browser back to the login page.
+    function redirectToLogin() {
+        window.location.href = LOGIN_ROUTE;
     }
-}
-    //attach the two above functions to the shared client object for the apis to use
+
+    //Probe the profile endpoint to confirm the user still has a valid authenticated session.
+    async function ensureAuthenticated() {
+        try {
+            await request('/api/profile', { method: 'GET' });
+            return true;
+        } catch (error) {
+            if (error.status === 401) {
+                redirectToLogin();
+                return false;
+            }
+            throw error;
+        }
+    }
+
+    //Route signed-in users to the dashboard and signed-out users to login.
+    async function redirectToDefaultPage() {
+        try {
+            await request('/api/profile', { method: 'GET' });
+            window.location.href = DASHBOARD_ROUTE;
+        } catch (error) {
+            if (error.status === 401) {
+                window.location.href = LOGIN_ROUTE;
+                return;
+            }
+            throw error;
+        }
+    }
+
+    //Publish the shared client so feature-specific API wrappers can reuse it.
     window.ApiClient = {
         request,
         redirectToLogin,
-        ensureAuthenticated
+        ensureAuthenticated,
+        redirectToDefaultPage
     };
+
+    //On every protected page load, verify the session unless the path is explicitly public.
+    document.addEventListener('DOMContentLoaded', async () => {
+        const path = window.location.pathname;
+        if (PUBLIC_PATHS.has(path)) {
+            return;
+        }
+
+        try {
+            await ensureAuthenticated();
+        } catch (error) {
+            if (error.status !== 401) {
+                throw error;
+            }
+        }
+    });
 })();
