@@ -124,14 +124,20 @@
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-body">
-            <div class="timeline-title">Change Password</div>
+            <div class="timeline-title">
+              Password:
+              <span id="passwordStatus" style="font-weight:600;">Last updated recently</span>
+            </div>
             <button class="card-edit" onclick="openModal('password')">Edit</button>
           </div>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-body">
-            <div class="timeline-title">Delete Account</div>
+            <div class="timeline-title">
+              Account:
+              <span style="font-weight:600;color:#d9534f;">Active</span>
+            </div>
             <button class="card-edit" onclick="openModal('delete')">Delete</button>
           </div>
         </div>
@@ -174,10 +180,11 @@
     if (status) status.textContent = mode === "on" ? "ON" : "OFF";
   }
 
-  /* LOAD SAVED INFO & DARK MODE ON STARTUP */
+  /* LOAD SAVED INFO ON STARTUP */
   window.addEventListener("load", () => {
     loadDemographicsDisplay();
     loadPreferencesDisplay();
+    loadAccountDisplay();
 
     const savedMode = localStorage.getItem("darkMode") === "on";
     applyDarkMode(savedMode);
@@ -329,9 +336,13 @@
         const newP = document.getElementById("new").value;
         const confirm = document.getElementById("confirm").value;
         const valid = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).+$/;
+
         if(newP !== confirm) return alert("Passwords do not match");
         if(!valid.test(newP)) return alert("Password must include uppercase, lowercase, number, symbol");
-        alert("Password updated!");
+
+        localStorage.setItem("password.updated", new Date().toLocaleDateString());
+
+        loadAccountDisplay();
       }
     },
 
@@ -398,6 +409,13 @@
 
     document.getElementById("displayLanguage").textContent = savedLanguage;
     document.getElementById("displayPrivacy").textContent = savedPrivacy;
+  }
+
+  function loadAccountDisplay(){
+    const lastUpdated = localStorage.getItem("password.updated");
+
+    document.getElementById("passwordStatus").textContent =
+      lastUpdated ? `Updated on ${lastUpdated}` : "Never Updated";
   }
 
   function closeModal(){
