@@ -129,4 +129,6 @@ Follow this project board to know the latest status of the project: https://gith
 - If running in Intellij, create a Maven Run Configuration with the following settings
     - Run Command: spring-boot:run
     - Working Directory: ~\final-project-03-TalentStack\TalentStack
+      <img width="1973" height="1697" alt="image" src="https://github.com/user-attachments/assets/cbf43fd3-a456-4772-aee1-436ac9ba75bc" />
+
 - When running, the project should compile and run in Spring
