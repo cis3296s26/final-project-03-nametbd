@@ -12,6 +12,8 @@ TalentStack was created to bridge the gap between education and employment. Many
 
 TalentStack is an all-in-one AI-powered career acceleration platform that combines career discovery, resume-based job matching, application tracking, interview preparation, notifications, and a networking-style communication layer. :contentReference[oaicite:0]{index=0}
 ```
+## Project Report
+This is a link to the Project Proposal, which also contains the scrum progress, tasks, and velocities for each week of the project: https://tuprd-my.sharepoint.com/:w:/g/personal/tur49580_temple_edu/IQAC3crI3A2CRYDahzCwRUquATRHb4ol9O8peBQ3UU-C1Uw?e=MR3Bkg
 
 ## Features (Both Implemented and Planned)
 ```
